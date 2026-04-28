@@ -1,0 +1,5 @@
+User-Agent: *
+Allow: /
+Disallow: /gracias
+
+Sitemap: https://camps.intersunsetcampus.com/sitemap.xml

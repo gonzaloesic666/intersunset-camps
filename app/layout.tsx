@@ -15,6 +15,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://camps.intersunsetcampus.com'),
   title: 'Monitor Camp USA 2027 | American Camps en España | Intersunset Campus',
   description:
     'Trabaja como monitor en American Camps este verano. Visado J1, salario mínimo 2.100$, alojamiento incluido. Agencia especializada en Camp Monitor USA en España. Plazas limitadas 2027.',
