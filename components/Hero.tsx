@@ -31,10 +31,11 @@ export default function Hero() {
       {/* 1 — Background photo */}
       <Image
         src="/hero-camp.webp"
-        alt="Monitores en American Camp USA"
+        alt="Monitores españoles trabajando en American Camp USA con niños"
         fill
         priority
-        quality={85}
+        quality={90}
+        sizes="100vw"
         style={{ objectFit: 'cover', objectPosition: 'center top' }}
       />
 

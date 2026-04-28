@@ -9,7 +9,7 @@ export default function Footer() {
     <footer style={{ background: 'var(--navy-dark)' }}>
       {/* Main footer */}
       <div className="section-wrap" style={{ paddingTop: '64px', paddingBottom: '48px' }}>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
 
           {/* Col 1 — Brand */}
           <div>
@@ -62,7 +62,35 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Col 3 — Legal */}
+          {/* Col 3 — Internal links */}
+          <div>
+            <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}>
+              El programa
+            </p>
+            <nav aria-label="Enlaces del programa">
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                {[
+                  { href: '#programa', label: 'Programa Monitor Camp USA' },
+                  { href: '#precio',   label: 'Precio Camp Monitor 2027' },
+                  { href: '#proceso',  label: 'Requisitos American Camp' },
+                  { href: '#contacto', label: 'Solicitar información' },
+                ].map(({ href, label }) => (
+                  <li key={label}>
+                    <a
+                      href={href}
+                      style={{ color: 'rgba(255,255,255,0.60)', fontSize: '14px', textDecoration: 'none', transition: 'color 0.18s' }}
+                      onMouseEnter={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'var(--orange)')}
+                      onMouseLeave={e => ((e.currentTarget as HTMLAnchorElement).style.color = 'rgba(255,255,255,0.60)')}
+                    >
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+          </div>
+
+          {/* Col 4 — Legal */}
           <div>
             <p style={{ color: 'rgba(255,255,255,0.35)', fontSize: '11px', fontWeight: 700, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '20px' }}>
               Legal

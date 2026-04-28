@@ -6,6 +6,7 @@ import CookieBanner from '@/components/CookieBanner';
 import MobileCtaBar from '@/components/MobileCtaBar';
 import { FaqSchema } from '@/components/FaqSchema';
 import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
+import { ProgramSchema } from '@/components/ProgramSchema';
 import { ScrollRevealProvider } from '@/components/ScrollRevealProvider';
 
 const montserrat = Montserrat({
@@ -16,21 +17,34 @@ const montserrat = Montserrat({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://camps.intersunsetcampus.com'),
-  title: 'Monitor Camp USA 2027 | American Camps en España | Intersunset Campus',
+  title: {
+    default: 'Monitor Camp USA 2027 | American Camps España | Intersunset Campus',
+    template: '%s | Intersunset Campus',
+  },
   description:
-    'Trabaja como monitor en American Camps este verano. Visado J1, salario mínimo 2.100$, alojamiento incluido. Agencia especializada en Camp Monitor USA en España. Plazas limitadas 2027.',
+    'Trabaja como monitor en American Camps USA este verano. Visado J1 gestionado, salario mínimo 2.100$, alojamiento incluido. Agencia especializada en Camp Monitor USA en España. Plazas 2027 disponibles.',
   keywords: [
     'monitor camp usa',
     'american camps',
     'american camps summer',
-    'camp counselor',
-    'camp usa',
+    'camp counselor españa',
+    'camp usa españa',
     'usa summer camp',
     'monitor campamento eeuu',
     'camp monitor españa',
-    'visado j1',
-    'Intersunset Campus',
+    'trabajar campamento estados unidos',
+    'visado j1 campamento',
+    'american camp summer 2027',
+    'monitor campamento usa 2027',
   ],
+  authors: [{ name: 'Intersunset Campus' }],
+  creator: 'Intersunset Campus',
+  publisher: 'Intersunset Campus',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -40,32 +54,46 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
     other: [{ rel: 'manifest', url: '/site.webmanifest' }],
   },
+  alternates: {
+    canonical: 'https://camps.intersunsetcampus.com',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   openGraph: {
-    title: 'Monitor Camp USA 2027 | American Camps en España | Intersunset Campus',
-    description:
-      'Trabaja como monitor en American Camps este verano. Visado J1, salario mínimo 2.100$, alojamiento incluido. Agencia especializada en Camp Monitor USA en España.',
+    type: 'website',
+    locale: 'es_ES',
     url: 'https://camps.intersunsetcampus.com',
     siteName: 'Intersunset Campus',
+    title: 'Monitor Camp USA 2027 | American Camps en España',
+    description:
+      'Trabaja como monitor en American Camps USA. Visado J1, salario 2.100$, alojamiento incluido. Agencia especializada en España.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Monitor Camp USA 2027 - Intersunset Campus',
+        type: 'image/jpeg',
       },
     ],
-    locale: 'es_ES',
-    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Monitor Camp USA 2027 | Intersunset Campus',
     description:
-      'Trabaja como monitor en American Camps. Visado J1, salario 2.100$, alojamiento incluido.',
+      'Trabaja en American Camps USA. Visado J1, salario 2.100$, alojamiento incluido.',
     images: ['/og-image.jpg'],
+    creator: '@intersunsetcampus',
   },
-  robots: { index: true, follow: true },
-  alternates: { canonical: 'https://camps.intersunsetcampus.com' },
 };
 
 const schemaMarkup = {
@@ -95,6 +123,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
         />
+        <link
+          rel="preload"
+          href="/hero-camp.webp"
+          as="image"
+          type="image/webp"
+        />
       </head>
       <body className="font-montserrat bg-white text-gray-900">
         <ScrollRevealProvider>
@@ -105,6 +139,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <MobileCtaBar />
         <FaqSchema />
         <LocalBusinessSchema />
+        <ProgramSchema />
       </body>
     </html>
   );
