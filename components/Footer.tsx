@@ -16,7 +16,7 @@ export default function Footer() {
           <div>
             <a href="/" style={{ display: 'inline-block', marginBottom: '4px' }}>
               <Image
-                src="/logo.png"
+                src="/logo.png.png"
                 alt="Intersunset Campus"
                 width={140}
                 height={40}

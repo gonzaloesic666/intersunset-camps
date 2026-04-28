@@ -79,7 +79,6 @@ export default function Hero() {
                 marginBottom: '28px',
               }}
             >
-              <span style={{ fontSize: '14px' }}>⚡</span>
               <span style={{ color: 'var(--orange-light)', fontWeight: 700, fontSize: '13px', letterSpacing: '0.4px' }}>
                 Convocatoria 2027 abierta
               </span>

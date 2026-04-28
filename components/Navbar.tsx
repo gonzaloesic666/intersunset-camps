@@ -52,7 +52,7 @@ export default function Navbar() {
         {/* Logo */}
         <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <Image
-            src="/logo.png"
+            src="/logo.png.png"
             alt="Intersunset Campus"
             width={120}
             height={40}
