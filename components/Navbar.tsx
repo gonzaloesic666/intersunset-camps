@@ -11,6 +11,7 @@ const links = [
   { href: '#proceso',     label: 'Cómo funciona' },
   { href: '#precio',      label: 'Precio' },
   { href: '#testimonios', label: 'Testimonios' },
+  { href: '/blog',        label: 'Blog' },
 ];
 
 export default function Navbar() {

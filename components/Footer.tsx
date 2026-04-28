@@ -74,6 +74,7 @@ export default function Footer() {
                   { href: '#precio',   label: 'Precio Camp Monitor 2027' },
                   { href: '#proceso',  label: 'Requisitos American Camp' },
                   { href: '#contacto', label: 'Solicitar información' },
+                  { href: '/blog',     label: 'Blog y consejos' },
                 ].map(({ href, label }) => (
                   <li key={label}>
                     <a

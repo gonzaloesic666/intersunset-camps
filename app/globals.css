@@ -198,6 +198,16 @@ section { padding: 64px 0; }
   .fade-up { animation: none; opacity: 1; }
 }
 
+/* ─── Blog cards ─────────────────────────────────────────── */
+.blog-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(30,29,72,0.16) !important;
+}
+
 /* ─── Responsive ─────────────────────────────────────────── */
 @media (max-width: 768px) {
   section { padding: 48px 0; }
