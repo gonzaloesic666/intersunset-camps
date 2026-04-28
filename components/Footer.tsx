@@ -1,6 +1,5 @@
 'use client';
 
-import Image from 'next/image';
 import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
@@ -14,15 +13,9 @@ export default function Footer() {
 
           {/* Col 1 — Brand */}
           <div>
-            <a href="/" style={{ display: 'inline-block', marginBottom: '4px' }}>
-              <Image
-                src="/logo.png.png"
-                alt="Intersunset Campus"
-                width={140}
-                height={40}
-                style={{ objectFit: 'contain', height: '36px', width: 'auto' }}
-              />
-            </a>
+            <p style={{ color: '#fff', fontWeight: 700, fontSize: '18px', marginBottom: '4px' }}>
+              Intersunset Campus
+            </p>
           </div>
 
           {/* Col 2 — Contact */}

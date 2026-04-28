@@ -52,11 +52,11 @@ export default function Navbar() {
         {/* Logo */}
         <a href="/" style={{ display: 'flex', alignItems: 'center' }}>
           <Image
-            src="/logo.png.png"
+            src="/logo-transparent.png"
             alt="Intersunset Campus"
-            width={120}
-            height={40}
-            style={{ objectFit: 'contain' }}
+            width={80}
+            height={28}
+            style={{ objectFit: 'contain', objectPosition: 'left center' }}
             priority
           />
         </a>
