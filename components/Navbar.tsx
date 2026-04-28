@@ -6,12 +6,12 @@ import Image from 'next/image';
 const CALENDLY = 'https://calendly.com/intersunsetcampus/intersunset-campus?back=1&m';
 
 const links = [
-  { href: '#programa',    label: 'El Programa' },
-  { href: '#beneficios',  label: 'Beneficios' },
-  { href: '#proceso',     label: 'Cómo funciona' },
-  { href: '#precio',      label: 'Precio' },
-  { href: '#testimonios', label: 'Testimonios' },
-  { href: '/blog',        label: 'Blog' },
+  { href: '/#programa',    label: 'El Programa' },
+  { href: '/#beneficios',  label: 'Beneficios' },
+  { href: '/#proceso',     label: 'Cómo funciona' },
+  { href: '/#precio',      label: 'Precio' },
+  { href: '/#testimonios', label: 'Testimonios' },
+  { href: '/blog',         label: 'Blog' },
 ];
 
 export default function Navbar() {
@@ -82,7 +82,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contacto"
+            href="/#contacto"
             style={{
               color: 'var(--orange)',
               fontWeight: 700,
@@ -158,7 +158,7 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contacto"
+            href="/#contacto"
             onClick={() => setOpen(false)}
             style={{
               display: 'block',
