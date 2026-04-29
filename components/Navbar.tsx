@@ -57,6 +57,8 @@ export default function Navbar() {
             alt="Intersunset Campus"
             width={80}
             height={28}
+            quality={90}
+            sizes="80px"
             style={{ objectFit: 'contain', objectPosition: 'left center' }}
             priority
           />

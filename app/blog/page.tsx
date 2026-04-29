@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { Clock } from 'lucide-react';
 import { getAllPosts, formatDate } from '@/lib/blog';
 import Navbar from '@/components/Navbar';
@@ -152,6 +153,38 @@ export default function BlogPage() {
         </div>
       </main>
 
+      <Script
+        id="blog-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Blog',
+            name: 'Blog Intersunset Campus',
+            description:
+              'Guías y consejos sobre el programa Monitor Camp USA para universitarios españoles',
+            url: 'https://camps.intersunsetcampus.com/blog',
+            publisher: {
+              '@type': 'Organization',
+              name: 'Intersunset Campus',
+              url: 'https://camps.intersunsetcampus.com',
+            },
+            inLanguage: 'es-ES',
+            blogPost: posts.map((post) => ({
+              '@type': 'BlogPosting',
+              headline: post.title,
+              description: post.description,
+              url: `https://camps.intersunsetcampus.com/blog/${post.slug}`,
+              datePublished: post.date,
+              author: {
+                '@type': 'Organization',
+                name: 'Intersunset Campus',
+              },
+            })),
+          }),
+        }}
+      />
       <Footer />
     </>
   );

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
+import Script from 'next/script';
 import './globals.css';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
@@ -12,7 +13,8 @@ import { ScrollRevealProvider } from '@/components/ScrollRevealProvider';
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
-  weight: ['400', '500', '600', '700', '800'],
+  weight: ['400', '500', '600', '700', '800', '900'],
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -40,11 +42,7 @@ export const metadata: Metadata = {
   authors: [{ name: 'Intersunset Campus' }],
   creator: 'Intersunset Campus',
   publisher: 'Intersunset Campus',
-  formatDetection: {
-    email: false,
-    address: false,
-    telephone: false,
-  },
+  formatDetection: { email: false, address: false, telephone: false },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -54,9 +52,7 @@ export const metadata: Metadata = {
     apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
     other: [{ rel: 'manifest', url: '/site.webmanifest' }],
   },
-  alternates: {
-    canonical: 'https://camps.intersunsetcampus.com',
-  },
+  alternates: { canonical: 'https://camps.intersunsetcampus.com' },
   robots: {
     index: true,
     follow: true,
@@ -89,14 +85,13 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Monitor Camp USA 2027 | Intersunset Campus',
-    description:
-      'Trabaja en American Camps USA. Visado J1, salario 2.100$, alojamiento incluido.',
+    description: 'Trabaja en American Camps USA. Visado J1, salario 2.100$, alojamiento incluido.',
     images: ['/og-image.jpg'],
     creator: '@intersunsetcampus',
   },
 };
 
-const schemaMarkup = {
+const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
   name: 'Intersunset Campus',
@@ -115,22 +110,38 @@ const schemaMarkup = {
   sameAs: [],
 };
 
+const websiteSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: 'Intersunset Campus',
+  url: 'https://camps.intersunsetcampus.com',
+  description: 'Agencia especializada en programas Monitor Camp USA para universitarios españoles',
+  inLanguage: 'es-ES',
+  publisher: {
+    '@type': 'Organization',
+    name: 'Intersunset Campus',
+    telephone: '+34919618440',
+    email: 'camp@intersunsetcampus.com',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Paseo de la Castellana 171',
+      addressLocality: 'Madrid',
+      addressCountry: 'ES',
+    },
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={montserrat.variable}>
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaMarkup) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        <link
-          rel="preload"
-          href="/hero-camp.webp"
-          as="image"
-          type="image/webp"
-        />
+        <link rel="preload" href="/hero-camp.webp" as="image" type="image/webp" />
       </head>
-      <body className="font-montserrat bg-white text-gray-900">
+      <body className={`${montserrat.className} bg-white text-gray-900`}>
         <ScrollRevealProvider>
           {children}
         </ScrollRevealProvider>
@@ -140,6 +151,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <FaqSchema />
         <LocalBusinessSchema />
         <ProgramSchema />
+        <Script
+          id="website-schema"
+          type="application/ld+json"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
       </body>
     </html>
   );

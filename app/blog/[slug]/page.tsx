@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Script from 'next/script';
 import { notFound } from 'next/navigation';
 import { Clock, ArrowLeft } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -22,17 +23,28 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const post = getPostBySlug(params.slug);
   if (!post) return {};
+  const url = `https://camps.intersunsetcampus.com/blog/${post.slug}`;
   return {
     title: post.title,
     description: post.description,
-    alternates: {
-      canonical: `https://camps.intersunsetcampus.com/blog/${post.slug}`,
-    },
+    authors: [{ name: 'Intersunset Campus' }],
+    alternates: { canonical: url },
     openGraph: {
       title: post.title,
       description: post.description,
       type: 'article',
       publishedTime: post.date,
+      authors: ['Intersunset Campus'],
+      siteName: 'Intersunset Campus',
+      locale: 'es_ES',
+      url,
+      images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: post.title }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.description,
+      images: ['/og-image.jpg'],
     },
   };
 }
@@ -308,6 +320,81 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
         </div>
       </main>
 
+      <Script
+        id="article-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Article',
+            headline: post.title,
+            description: post.description,
+            datePublished: post.date,
+            dateModified: post.date,
+            author: {
+              '@type': 'Organization',
+              name: 'Intersunset Campus',
+              url: 'https://camps.intersunsetcampus.com',
+            },
+            publisher: {
+              '@type': 'Organization',
+              name: 'Intersunset Campus',
+              logo: {
+                '@type': 'ImageObject',
+                url: 'https://camps.intersunsetcampus.com/logo.png',
+              },
+            },
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': `https://camps.intersunsetcampus.com/blog/${post.slug}`,
+            },
+            image: {
+              '@type': 'ImageObject',
+              url: 'https://camps.intersunsetcampus.com/og-image.jpg',
+              width: 1200,
+              height: 630,
+            },
+            inLanguage: 'es-ES',
+            isPartOf: {
+              '@type': 'Blog',
+              name: 'Blog Intersunset Campus',
+              url: 'https://camps.intersunsetcampus.com/blog',
+            },
+          }),
+        }}
+      />
+      <Script
+        id="breadcrumb-schema"
+        type="application/ld+json"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              {
+                '@type': 'ListItem',
+                position: 1,
+                name: 'Inicio',
+                item: 'https://camps.intersunsetcampus.com',
+              },
+              {
+                '@type': 'ListItem',
+                position: 2,
+                name: 'Blog',
+                item: 'https://camps.intersunsetcampus.com/blog',
+              },
+              {
+                '@type': 'ListItem',
+                position: 3,
+                name: post.title,
+                item: `https://camps.intersunsetcampus.com/blog/${post.slug}`,
+              },
+            ],
+          }),
+        }}
+      />
       <Footer />
     </>
   );
