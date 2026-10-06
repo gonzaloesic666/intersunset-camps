@@ -126,7 +126,7 @@ export default function SemLanding() {
         {/* 1 · HERO */}
         <header className="sem-hero">
           <div className="sem-hero__bg" aria-hidden="true">
-            <Image src="/hero-camp.webp" alt="" fill priority sizes="100vw" quality={60} />
+            <Image src="/hero-camp.webp" alt="" fill priority sizes="(min-width: 900px) 100vw, 640px" quality={45} />
           </div>
           <div className="sem-wrap">
             <div className="sem-brand">

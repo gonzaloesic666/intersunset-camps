@@ -286,3 +286,28 @@
 
 .sem-card--list { border-left: 4px solid var(--orange); padding: 22px 24px; }
 .sem-card--list .sem-ticks li { padding: 7px 0; }
+
+/* ─── Accesibilidad (Lighthouse): contraste y áreas táctiles ───────────── */
+/* Texto sobre naranja de marca: navy (5,7:1) en lugar de blanco (2,8:1) */
+.sem-btn, .sem-tag, .sem-chip--big, .sem-chip--big strong,
+.sem-pay--hl, .sem-pay--hl .sem-pay__tag, .sem-pay--hl .sem-pay__amt,
+.sem-pay--hl .sem-pay__when, .sem-pay--hl li { color: var(--navy); }
+.sem-pay__tag { opacity: 1; }
+.sem-btn:hover { background: #f09a4a; }
+.sem-btn--wa, .sem-btn--wa:hover { color: #fff; background: transparent; }
+.sem-btn--wa:hover { background: rgba(255,255,255,.1); }
+/* Eyebrow naranja: versión oscura sobre fondos claros, marca sobre navy */
+.sem-eyebrow { color: #b45309; }
+.sem-dark .sem-eyebrow, .sem-hero .sem-eyebrow { color: var(--orange); }
+/* Verde accesible sobre blanco */
+.sem { --green: #1b7f42; }
+.sem-meta { color: rgba(255,255,255,.88); }
+.sem-hero .sem-microcopy, .sem-dark .sem-microcopy { color: rgba(255,255,255,.9); }
+.sem-note span, .sem-small { color: #4a4870; }
+/* Áreas táctiles de al menos 44px y separación */
+.sem-link, .sem-check a, .sem-footer a {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 4px 0;
+}
+.sem-check a { display: inline; min-height: 0; padding: 14px 0; }
+.sem-alt-link { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 0 6px; align-items: center; }
+.sem-footer__row { gap: 0 20px; }

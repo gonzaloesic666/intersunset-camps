@@ -113,7 +113,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
         />
-        <link rel="preload" href="/hero-camp.webp" as="image" type="image/webp" />
       </head>
       <body className={`${montserrat.className} bg-white text-gray-900`}>
         <ScrollRevealProvider>

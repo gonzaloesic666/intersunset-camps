@@ -104,7 +104,7 @@ export default function CookieBanner() {
             onClick={() => dismiss('accepted')}
             style={{
               background: '#E38231',
-              color: '#fff',
+              color: '#1E1D48',
               padding: '9px 18px',
               borderRadius: '8px',
               fontSize: '14px',
