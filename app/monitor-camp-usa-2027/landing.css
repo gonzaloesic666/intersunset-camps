@@ -321,3 +321,12 @@
 /* Footer: todos los elementos de cada fila con la misma caja y alineados */
 .sem-footer__row { align-items: center; gap: 0 22px; margin-top: 6px; }
 .sem-footer__row > span, .sem-footer__row > a { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
+
+/* Hero: fondo por CSS con imagen ligera en móvil y mediana en escritorio */
+.sem-hero__bg { background: #141330 url(/landing/hero-m.webp) 60% 30% / cover no-repeat; }
+@media (min-width: 900px) { .sem-hero__bg { background-image: url(/landing/hero-d.webp); background-position: center 30%; } }
+
+/* Rendimiento: no calcular layout/pintado de las secciones fuera de pantalla hasta que se acercan.
+   (trust strip y formulario superior quedan fuera: se ven enseguida) */
+.sem main > section:nth-of-type(n+3) { content-visibility: auto; contain-intrinsic-size: auto 700px; }
+.sem footer { content-visibility: auto; contain-intrinsic-size: auto 260px; }

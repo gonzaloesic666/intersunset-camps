@@ -57,7 +57,7 @@ export async function POST(request: Request) {
 
   try {
     const { error } = await resend.emails.send({
-      from: 'Intersunset Campus <onboarding@resend.dev>',
+      from: process.env.RESEND_FROM || 'Intersunset Campus <onboarding@resend.dev>',
       to: [process.env.CONTACT_EMAIL as string],
       subject: `Nuevo contacto Camp Monitor: ${nombre} ${apellidos}`,
       html,

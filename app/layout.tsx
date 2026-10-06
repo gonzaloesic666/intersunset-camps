@@ -8,7 +8,6 @@ import Analytics from '@/components/Analytics';
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
-  weight: ['400', '500', '600', '700', '800', '900'],
   display: 'swap',
 });
 

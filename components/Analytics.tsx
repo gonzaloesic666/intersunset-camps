@@ -35,6 +35,28 @@ function clickLocation(el: Element): string {
 export default function Analytics() {
   const pathname = usePathname();
 
+  // gtag.js (175 KB) se carga tras la primera interacción o a los 3 s: así no compite con el
+  // contenido visible. Los eventos se acumulan en dataLayer y se envían al cargar.
+  useEffect(() => {
+    let loaded = false;
+    const events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
+    const load = () => {
+      if (loaded) return;
+      loaded = true;
+      events.forEach(e => window.removeEventListener(e, load));
+      const el = document.createElement('script');
+      el.async = true;
+      el.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
+      document.head.appendChild(el);
+    };
+    events.forEach(e => window.addEventListener(e, load, { once: true, passive: true }));
+    const timer = setTimeout(load, 3000);
+    return () => {
+      clearTimeout(timer);
+      events.forEach(e => window.removeEventListener(e, load));
+    };
+  }, []);
+
   useEffect(() => {
     const grant = () =>
       window.gtag?.('consent', 'update', {
@@ -131,10 +153,6 @@ gtag('js',new Date());
 gtag('config','${GA_ID}');${ADS_ID ? `
 gtag('config','${ADS_ID}',{allow_enhanced_conversions:true});` : ''}`}
       </Script>
-      <Script
-        src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        strategy="afterInteractive"
-      />
     </>
   );
 }

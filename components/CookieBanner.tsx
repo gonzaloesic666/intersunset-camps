@@ -10,9 +10,15 @@ export default function CookieBanner() {
   useEffect(() => {
     const consent = localStorage.getItem('cookie-consent');
     if (!consent) {
-      setMounted(true);
-      // Small delay so the slide-up transition fires
-      const t = setTimeout(() => setVisible(true), 120);
+      // Esperamos a que las fuentes estén cargadas para no provocar un salto de diseño (CLS)
+      let t: ReturnType<typeof setTimeout>;
+      const show = () => {
+        setMounted(true);
+        // Small delay so the slide-up transition fires
+        t = setTimeout(() => setVisible(true), 120);
+      };
+      const ready = document.fonts?.ready ?? Promise.resolve();
+      ready.then(() => setTimeout(show, 300));
       return () => clearTimeout(t);
     }
   }, []);

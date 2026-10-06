@@ -83,7 +83,7 @@ export async function POST(request: Request) {
     const results = await Promise.all(
       recipients.map(async to => {
         const { error } = await resend.emails.send({
-          from: 'Intersunset Campus <onboarding@resend.dev>',
+          from: process.env.RESEND_FROM || 'Intersunset Campus <onboarding@resend.dev>',
           to: [to],
           replyTo: String(email),
           subject: `Lead SEM Monitor Camp USA 2027: ${esc(nombre)}`,
