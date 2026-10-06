@@ -5,7 +5,7 @@ import { Check, X } from 'lucide-react';
 const WA_URL = 'https://wa.me/34641900180';
 
 const included = [
-  'Puesto como Monitor durante 9 semanas',
+  'Puesto como Monitor durante 8 a 10 semanas',
   'Salario mínimo de 2.300$',
   'Alojamiento gratuito en el campamento',
   'Comida gratuita durante toda la estancia',

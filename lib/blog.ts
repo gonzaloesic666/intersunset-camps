@@ -60,12 +60,12 @@ Es importante que conozcas también los gastos que corren por tu cuenta:
 
 Aquí está la gran diferencia con otros programas de intercambio. Como monitor de campamento en EEUU:
 
-- **Salario mínimo garantizado: 2.300$** por temporada (9 semanas)
+- **Salario mínimo garantizado: 2.300$** por temporada (8 a 10 semanas)
 - **Alojamiento completamente gratuito** durante toda la estancia
-- **Comida gratuita** durante las 9 semanas en el campamento
+- **Comida gratuita** durante las 8 a 10 semanas en el campamento
 - **30 días adicionales** para viajar por Estados Unidos al terminar
 
-Haciendo el cálculo: si tu salario es de 2.300$ y no tienes gastos de alojamiento ni comida durante 9 semanas, prácticamente todo lo que ganas es ahorro neto. Muchos de nuestros participantes vuelven a España con **más de 1.500€ ahorrados**.
+Haciendo el cálculo: si tu salario es de 2.300$ y no tienes gastos de alojamiento ni comida durante 8 a 10 semanas, prácticamente todo lo que ganas es ahorro neto. Muchos de nuestros participantes vuelven a España con **más de 1.500€ ahorrados**.
 
 ### ¿Es rentable económicamente?
 
@@ -81,7 +81,7 @@ Vamos con los números reales:
 | Concepto | Ingreso |
 |---|---|
 | Salario campamento | 2.300$ (~2.140€) |
-| Ahorro en alojamiento 9 semanas | ~1.800€ |
+| Ahorro en alojamiento 8 a 10 semanas | ~1.800€ |
 | **Total valor recibido** | **~3.950€** |
 
 El programa no solo se autofinancia: muchos participantes **vuelven con dinero ahorrado** después de haber vivido una experiencia única en Estados Unidos.
@@ -312,13 +312,13 @@ La respuesta depende del campamento, tu experiencia y el tipo de rol que desempe
 
 ### El salario mínimo garantizado: 2.300$
 
-Todos los monitores que participan en el programa de Intersunset Campus reciben un **salario mínimo de 2.300$** por temporada de 9 semanas. Este es el compromiso que el campamento asume contigo desde el momento en que firmas el contrato.
+Todos los monitores que participan en el programa de Intersunset Campus reciben un **salario mínimo de 2.300$** por temporada de 8 a 10 semanas. Este es el compromiso que el campamento asume contigo desde el momento en que firmas el contrato.
 
 Algunos campamentos pagan más dependiendo de tu experiencia, tus habilidades específicas o el tipo de actividad que impartas. Los monitores con experiencia previa en campamentos o con habilidades muy demandadas como natación, escalada o música pueden llegar a ganar **entre 2.500$ y 3.000$** por temporada.
 
-### La gran ventaja: cero gastos durante 9 semanas
+### La gran ventaja: cero gastos durante 8 a 10 semanas
 
-Durante las 9 semanas que estás en el campamento:
+Durante las 8 a 10 semanas que estás en el campamento:
 
 - **Alojamiento completamente gratuito**: vives en el campamento sin pagar nada
 - **Comida completamente gratuita**: todas las comidas están incluidas
@@ -331,8 +331,8 @@ Esto significa que prácticamente **todo el dinero que ganas es ahorro neto**.
 | Concepto | Cantidad |
 |---|---|
 | Salario del campamento | 2.300$ (~2.140€) |
-| Ahorro en alojamiento (9 semanas) | ~1.800€ |
-| Ahorro en comida (9 semanas) | ~900€ |
+| Ahorro en alojamiento (8 a 10 semanas) | ~1.800€ |
+| Ahorro en comida (8 a 10 semanas) | ~900€ |
 | **Valor total recibido** | **~4.850€** |
 
 | Concepto | Cantidad |
@@ -403,7 +403,7 @@ Un nivel B1 es suficiente para la mayoría de campamentos, especialmente si:
 
 ### La inmersión como acelerador
 
-Una de las grandes ventajas del programa es que tu inglés va a mejorar exponencialmente durante las 9 semanas. Muchos participantes que llegan con un B1 vuelven con un nivel C1.
+Una de las grandes ventajas del programa es que tu inglés va a mejorar exponencialmente durante las 8 a 10 semanas. Muchos participantes que llegan con un B1 vuelven con un nivel C1.
 
 ¿Por qué? Porque estás en inglés **24 horas al día, 7 días a la semana**.
 
@@ -415,7 +415,7 @@ En la cita gratuita inicial hacemos una valoración informal de tu nivel de ingl
 
 **Elisabeth**, que fue a Lou Henry Hoover Camp, llegó con un B2 y volvió con un nivel que le permitió hacer entrevistas de trabajo en inglés sin problema.
 
-**Eric**, que fue a Greenwoods Camp en Maine, tenía un nivel B1 cuando empezó el proceso. Pasó la entrevista con el campamento y volvió con un inglés fluido después de 9 semanas de inmersión total.
+**Eric**, que fue a Greenwoods Camp en Maine, tenía un nivel B1 cuando empezó el proceso. Pasó la entrevista con el campamento y volvió con un inglés fluido después de 8 a 10 semanas de inmersión total.
 
 **Reserva tu cita gratuita** y comprobamos juntos si tu nivel de inglés es suficiente para el programa.
     `,
@@ -495,7 +495,7 @@ La asignación de campamento depende de tu perfil, tus habilidades y la disponib
     content: `
 ## Lista completa: qué llevar a un campamento americano
 
-Preparar la maleta para 9 semanas en un campamento americano puede ser abrumador si no sabes por dónde empezar.
+Preparar la maleta para 8 a 10 semanas en un campamento americano puede ser abrumador si no sabes por dónde empezar.
 
 ### Lo más importante: la documentación
 

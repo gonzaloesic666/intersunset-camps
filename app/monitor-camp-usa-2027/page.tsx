@@ -6,6 +6,8 @@ import LeadForm from '@/components/landing/LeadForm';
 import StickyCta from '@/components/landing/StickyCta';
 import LandingTracker from '@/components/landing/LandingTracker';
 import LandingFooter from '@/components/landing/LandingFooter';
+import CalendlyLink from '@/components/landing/CalendlyLink';
+import UsFlag from '@/components/landing/UsFlag';
 
 const CTA_TEXT = 'COMPROBAR SI CUMPLES LOS REQUISITOS';
 
@@ -18,12 +20,12 @@ function Cta({ where }: { where: string }) {
 }
 
 const benefits = [
-  { ico: '💵', t: 'Gana dinero', d: `Salario mínimo de ${c.salary} por las aproximadamente ${c.weeks} semanas de temporada.` },
-  { ico: '🏠', t: 'Alojamiento incluido', d: 'Vivirás dentro o asociado al campamento durante el programa.' },
-  { ico: '🍽️', t: 'Comida incluida', d: 'El campamento cubre tu manutención durante la temporada.' },
-  { ico: '🇺🇸', t: 'Mejora tu inglés', d: 'Trabajarás y convivirás en inglés durante toda la experiencia.' },
-  { ico: '🌎', t: 'Experiencia internacional', d: 'Compartirás la experiencia con participantes y trabajadores de diferentes países.' },
-  { ico: '✈️', t: 'Viaja por EEUU', d: `Al terminar el campamento dispondrás de hasta ${c.travelDays} días para viajar por Estados Unidos.` },
+  { t: 'Gana dinero', d: `Salario mínimo de ${c.salary} por la temporada de ${c.duration}.` },
+  { t: 'Alojamiento incluido', d: 'Vivirás dentro o asociado al campamento durante el programa.' },
+  { t: 'Comida incluida', d: 'El campamento cubre tu manutención durante la temporada.' },
+  { t: 'Mejora tu inglés', d: 'Trabajarás y convivirás en inglés durante toda la experiencia.' },
+  { t: 'Experiencia internacional', d: 'Compartirás la experiencia con participantes y trabajadores de diferentes países.' },
+  { t: 'Viaja por EEUU', d: `Al terminar el campamento dispondrás de hasta ${c.travelDays} días para viajar por Estados Unidos.` },
 ];
 
 const activities = [
@@ -32,7 +34,7 @@ const activities = [
 ];
 
 const included = [
-  `Puesto como monitor durante aproximadamente ${c.weeks} semanas`,
+  `Puesto como monitor durante ${c.duration}`,
   `Salario mínimo de ${c.salary}`,
   'Alojamiento',
   'Comida',
@@ -97,7 +99,7 @@ const objections = [
 
 const faqs = [
   ['¿Cuánto cuesta el programa?', `El programa cuesta ${c.priceTotal} en total: ${c.firstPayment} al comenzar el proceso y ${c.secondPayment} cuando un campamento te ofrezca un contrato oficial. Los gastos externos (vuelos, tasas oficiales, etc.) no están incluidos.`],
-  ['¿Cuánto dinero voy a ganar?', `El salario mínimo es de ${c.salary} por la temporada (unas ${c.weeks} semanas). Además, alojamiento y comida están incluidos durante tu estancia. Algunos campamentos pueden pagar más según el perfil.`],
+  ['¿Cuánto dinero voy a ganar?', `El salario mínimo es de ${c.salary} por la temporada (${c.duration}). Además, alojamiento y comida están incluidos durante tu estancia. Algunos campamentos pueden pagar más según el perfil.`],
   ['¿Qué nivel de inglés necesito?', 'Un nivel conversacional suficiente para comunicarte con niños y compañeros. No hace falta hablar como un nativo.'],
   ['¿Puedo ir con amigos?', 'Puedes indicarlo desde el principio y trataremos de coordinar las opciones, pero la colocación conjunta no puede garantizarse: depende de plazas y perfiles.'],
   ['¿Qué pasa si no consigo visado?', 'Te acompañamos y ayudamos con la preparación y la documentación, pero la decisión corresponde a las autoridades consulares. Cualquier caso se trata según las condiciones del programa y del sponsor.'],
@@ -106,7 +108,7 @@ const faqs = [
   ['¿Qué gastos tengo que pagar aparte?', 'Vuelos, la tarifa oficial de solicitud/entrevista de visado cuando corresponda, el certificado de antecedentes penales y tus gastos personales. Los importes externos son orientativos: consulta las tarifas oficiales vigentes.'],
   ['¿Qué tipo de actividades puedo hacer?', 'Depende de tu perfil y del campamento: deportes, arte, música, naturaleza, aventura o acompañamiento de grupos de campistas.'],
   ['¿Puedo participar si no he sido monitor antes?', 'Sí. No es necesario haber trabajado como monitor profesional; se valoran la experiencia con niños y tus habilidades.'],
-  ['¿Cuánto dura el programa?', `La temporada de trabajo dura aproximadamente ${c.weeks} semanas, más hasta ${c.travelDays} días para viajar por EEUU al terminar.`],
+  ['¿Cuánto dura el programa?', `La temporada de trabajo dura ${c.duration}, más hasta ${c.travelDays} días para viajar por EEUU al terminar.`],
   ['¿Cuántos días puedo viajar después del campamento?', `Hasta ${c.travelDays} días, una vez finalizado el programa.`],
 ] as const;
 
@@ -129,10 +131,10 @@ export default function SemLanding() {
               <strong style={{ fontFamily: 'var(--font-montserrat)', fontSize: 15 }}>Intersunset Campus</strong>
             </div>
             <div className="sem-hero__body">
-              <span className="sem-tag">MONITOR CAMP USA {c.year} 🇺🇸</span>
+              <span className="sem-tag">MONITOR CAMP USA {c.year} <UsFlag height={13} /></span>
               <h1>Trabaja este verano en un campamento americano</h1>
               <p className="sem-hero__text">
-                Gana al menos {c.salary}, mejora tu inglés, vive durante {c.weeks} semanas en un American
+                Gana al menos {c.salary}, mejora tu inglés, vive {c.durationBetween} en un American
                 Camp y disfruta de hasta {c.travelDays} días para viajar por Estados Unidos.
               </p>
               <div className="sem-chips">
@@ -150,6 +152,12 @@ export default function SemLanding() {
               <div className="sem-hero__cta">
                 <Cta where="hero" />
                 <p className="sem-microcopy">Evaluamos tu perfil gratuitamente · Sin compromiso</p>
+                <p className="sem-alt-link">
+                  ¿Prefieres hablar ya?{' '}
+                  <CalendlyLink location="hero" className="sem-link sem-link--light">
+                    Reserva una llamada gratuita
+                  </CalendlyLink>
+                </p>
               </div>
               <p className="sem-meta">{c.ageRange} años · España · {c.season}</p>
             </div>
@@ -160,11 +168,11 @@ export default function SemLanding() {
         <section className="sem-trust" aria-label="Resumen del programa">
           <div className="sem-wrap" style={{ padding: 0 }}>
             <ul>
-              <li>🇺🇸 Programa J-1</li>
-              <li>💵 {c.salary} mínimo</li>
-              <li>🏕️ {c.weeks} semanas</li>
-              <li>🏠 Alojamiento incluido</li>
-              <li>✈️ {c.travelDays} días para viajar</li>
+              <li>Programa J-1</li>
+              <li>{c.salary} mínimo</li>
+              <li>{c.durationShort}</li>
+              <li>Alojamiento incluido</li>
+              <li>{c.travelDays} días para viajar</li>
             </ul>
           </div>
         </section>
@@ -192,22 +200,19 @@ export default function SemLanding() {
             <span className="sem-eyebrow">El programa</span>
             <h2 className="sem-h2">Trabaja en un American Camp este verano</h2>
             <p className="sem-lead">
-              Durante unas {c.weeks} semanas vivirás y trabajarás en un campamento de verano en Estados
+              Durante {c.durationBetween} vivirás y trabajarás en un campamento de verano en Estados
               Unidos, rodeado de jóvenes de todo el mundo.
             </p>
             <div className="sem-grid sem-grid--3">
               <div className="sem-card">
-                <span className="sem-ico">🏕️</span>
                 <h3>Tu trabajo</h3>
                 <p>Actividades, deportes, arte, naturaleza, aventura o acompañamiento de niños y adolescentes, según tu perfil y las necesidades del campamento.</p>
               </div>
               <div className="sem-card">
-                <span className="sem-ico">💵</span>
                 <h3>Lo que recibes</h3>
                 <p>Alojamiento y comida incluidos durante tu estancia y un salario mínimo de {c.salary} por la temporada.</p>
               </div>
               <div className="sem-card">
-                <span className="sem-ico">✈️</span>
                 <h3>Después</h3>
                 <p>Cuando termine el campamento, tendrás hasta {c.travelDays} días para viajar por Estados Unidos.</p>
               </div>
@@ -222,7 +227,6 @@ export default function SemLanding() {
             <div className="sem-grid sem-grid--3">
               {benefits.map(b => (
                 <div className="sem-card" key={b.t}>
-                  <span className="sem-ico" aria-hidden="true">{b.ico}</span>
                   <h3>{b.t}</h3>
                   <p>{b.d}</p>
                 </div>
@@ -304,6 +308,11 @@ export default function SemLanding() {
             </div>
             <div style={{ maxWidth: 440, margin: '24px auto 0' }}>
               <Cta where="price" />
+              <p className="sem-alt-link">
+                <CalendlyLink location="price" className="sem-link sem-link--light">
+                  O reserva una llamada gratuita para resolver tus dudas
+                </CalendlyLink>
+              </p>
             </div>
           </div>
         </section>
@@ -362,6 +371,9 @@ export default function SemLanding() {
               <a href="#formulario" className="sem-btn sem-btn--block" data-cta="requirements">
                 COMPROBAR MI PERFIL
               </a>
+              <p className="sem-alt-link">
+                <CalendlyLink location="requirements">Reserva una llamada gratuita</CalendlyLink>
+              </p>
             </div>
           </div>
         </section>
@@ -378,6 +390,12 @@ export default function SemLanding() {
                 </li>
               ))}
             </ol>
+            <div style={{ maxWidth: 440 }}>
+              <Cta where="steps" />
+              <p className="sem-alt-link">
+                <CalendlyLink location="steps">Reserva una llamada gratuita con el equipo</CalendlyLink>
+              </p>
+            </div>
           </div>
         </section>
 
@@ -417,6 +435,9 @@ export default function SemLanding() {
                 Soy Gonzalo, director de Intersunset Campus. Nuestro objetivo es que puedas vivir la
                 experiencia de trabajar en Estados Unidos con la máxima transparencia y sabiendo en todo
                 momento qué estás contratando.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                <CalendlyLink location="about">Habla con nosotros: reserva una llamada gratuita</CalendlyLink>
               </p>
             </div>
           </div>
@@ -487,16 +508,21 @@ export default function SemLanding() {
             <div style={{ marginTop: 22 }}>
               <Cta where="final" />
             </div>
-            <p className="sem-alt">También puedes hablar directamente con nuestro equipo por WhatsApp.</p>
-            <a
-              href={whatsappUrl()}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="sem-btn sem-btn--wa"
-              data-location="final"
-            >
-              HABLAR POR WHATSAPP
-            </a>
+            <p className="sem-alt">También puedes hablar directamente con nuestro equipo.</p>
+            <div className="sem-actions">
+              <CalendlyLink location="final" className="sem-btn sem-btn--wa">
+                RESERVAR LLAMADA GRATUITA
+              </CalendlyLink>
+              <a
+                href={whatsappUrl()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="sem-btn sem-btn--wa"
+                data-location="final"
+              >
+                HABLAR POR WHATSAPP
+              </a>
+            </div>
           </div>
         </section>
 

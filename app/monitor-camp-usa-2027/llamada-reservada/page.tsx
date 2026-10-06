@@ -16,7 +16,7 @@ export default function LlamadaReservada() {
       <CalendarBooked />
       <main className="sem-thanks">
         <div className="sem-wrap" style={{ maxWidth: 640 }}>
-          <h1>¡Llamada reservada! ✅</h1>
+          <h1>¡Llamada reservada!</h1>
           <p>Te hemos enviado la confirmación por email. Hablaremos contigo en la fecha elegida.</p>
           <p>Si necesitas cambiar algo, escríbenos a {c.email}.</p>
         </div>

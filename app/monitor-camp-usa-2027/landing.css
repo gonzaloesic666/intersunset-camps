@@ -256,3 +256,16 @@
 @media (prefers-reduced-motion: reduce) {
   .sem * { transition: none !important; scroll-behavior: auto !important; }
 }
+
+/* Enlaces secundarios (Calendly) y bloque de acciones */
+.sem-link { color: var(--navy); font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.sem-link:hover { color: var(--orange-dark); }
+.sem-link--light { color: #fff; }
+.sem-link--light:hover { color: var(--orange); }
+.sem-alt-link { margin-top: 12px; font-size: 14.5px; color: var(--muted); }
+.sem-hero .sem-alt-link, .sem-dark .sem-alt-link { color: rgba(255,255,255,.8); }
+.sem-actions { display: flex; flex-direction: column; gap: 12px; align-items: center; }
+.sem-actions .sem-btn { max-width: 440px; }
+@media (min-width: 900px) { .sem-actions { flex-direction: row; justify-content: center; } .sem-actions .sem-btn { width: auto; } }
+.sem-card { border-left: 4px solid var(--orange); }
+.sem-tag svg { margin-left: 4px; }

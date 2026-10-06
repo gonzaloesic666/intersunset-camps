@@ -3,7 +3,7 @@
 import { Clock, Calendar, FileCheck, User, Home, DollarSign } from 'lucide-react';
 
 const highlights = [
-  { label: 'Duración',    value: '9 semanas',                 Icon: Clock      },
+  { label: 'Duración',    value: '8–10 semanas',                 Icon: Clock      },
   { label: 'Fechas',      value: 'Mayo/Junio – Agosto',       Icon: Calendar   },
   { label: 'Visado',      value: 'J1',                        Icon: FileCheck  },
   { label: 'Edad',        value: '18 – 30 años',              Icon: User       },
@@ -25,7 +25,7 @@ export default function WhatIsProgram() {
             </h2>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginTop: '8px' }}>
               {[
-                <>El programa de <strong style={{ color: 'var(--navy)', fontWeight: 700 }}>Monitor de Campamento en Estados Unidos</strong> te permite pasar el verano trabajando como monitor o instructor en un campamento americano durante 9 semanas, entre mayo/junio y agosto.</>,
+                <>El programa de <strong style={{ color: 'var(--navy)', fontWeight: 700 }}>Monitor de Campamento en Estados Unidos</strong> te permite pasar el verano trabajando como monitor o instructor en un campamento americano durante 8 a 10 semanas, entre mayo/junio y agosto.</>,
                 <>Trabajarás con niños y jóvenes de todo el mundo, enseñando actividades deportivas, artísticas, de naturaleza o cualquier otra especialidad que tengas: desde escalada hasta teatro, pasando por natación, cocina, música o tecnología.</>,
                 <>El programa se gestiona a través del <strong style={{ color: 'var(--navy)', fontWeight: 700 }}>Visado J1</strong>, que emite la Embajada de Estados Unidos y te permite trabajar legalmente en el país durante la temporada de verano.</>,
                 <>El campamento corre con los gastos de alojamiento y manutención completa, y además recibirás un salario mínimo de 2.300$. Intersunset Campus te guía en cada paso del proceso desde España.</>,

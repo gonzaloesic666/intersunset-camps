@@ -3,6 +3,7 @@ import { campaign as c, whatsappUrl } from '@/lib/campaign';
 import GraciasClient from '@/components/landing/GraciasClient';
 import LandingTracker from '@/components/landing/LandingTracker';
 import LandingFooter from '@/components/landing/LandingFooter';
+import UsFlag from '@/components/landing/UsFlag';
 
 export const metadata: Metadata = {
   title: { absolute: '¡Hemos recibido tus datos! | Monitor Camp USA' },
@@ -15,7 +16,7 @@ export default function SemGracias() {
       <LandingTracker />
       <main className="sem-thanks">
         <div className="sem-wrap" style={{ maxWidth: 640 }}>
-          <h1>¡Hemos recibido tus datos! 🇺🇸</h1>
+          <h1>¡Hemos recibido tus datos! <UsFlag height={28} /></h1>
           <p>El siguiente paso es valorar tu perfil y resolver tus dudas.</p>
           <p>Puedes reservar ahora una llamada gratuita con nuestro equipo.</p>
           <GraciasClient />

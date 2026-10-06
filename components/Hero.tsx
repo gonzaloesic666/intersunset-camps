@@ -11,7 +11,7 @@ const badges = [
 
 const cardStats = [
   { value: '2.300$',    label: 'Salario mínimo garantizado' },
-  { value: '9 semanas', label: 'En un American Camp USA' },
+  { value: '8–10 semanas', label: 'En un American Camp USA' },
   { value: '30 días',   label: 'Para viajar por Estados Unidos' },
 ];
 

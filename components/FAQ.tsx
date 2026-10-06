@@ -9,7 +9,7 @@ const faqs = [
   },
   {
     question: '¿Cuánto dinero voy a ganar?',
-    answer: 'Los campamentos pagan un salario mínimo de 2.300$ por temporada (9 semanas). Además, el alojamiento y la comida están completamente incluidos, por lo que prácticamente todo lo que ganas es ahorro neto. Al terminar el programa, dispones de 30 días para viajar por EEUU antes de regresar.',
+    answer: 'Los campamentos pagan un salario mínimo de 2.300$ por temporada (8 a 10 semanas). Además, el alojamiento y la comida están completamente incluidos, por lo que prácticamente todo lo que ganas es ahorro neto. Al terminar el programa, dispones de 30 días para viajar por EEUU antes de regresar.',
   },
   {
     question: '¿Qué nivel de inglés necesito exactamente?',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: '¿Qué incluye exactamente el programa?',
-    answer: 'El programa incluye: puesto como monitor durante 9 semanas, salario mínimo 2.300$, alojamiento gratuito en el campamento, comida gratuita, gestión del visado J1, formulario DS-2019, tasa SEVIS, seguro médico durante todo el programa, soporte 24h durante tu estancia, orientación previa al viaje y 30 días para viajar por EEUU al finalizar.',
+    answer: 'El programa incluye: puesto como monitor durante 8 a 10 semanas, salario mínimo 2.300$, alojamiento gratuito en el campamento, comida gratuita, gestión del visado J1, formulario DS-2019, tasa SEVIS, seguro médico durante todo el programa, soporte 24h durante tu estancia, orientación previa al viaje y 30 días para viajar por EEUU al finalizar.',
   },
   {
     question: '¿Por qué elegir Intersunset Campus?',
