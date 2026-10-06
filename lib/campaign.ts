@@ -28,6 +28,8 @@ export const campaign = {
   phoneHref: 'tel:+34919618440',
   city: 'Madrid, España',
   address: 'Paseo de la Castellana 257, Torre Sur, 1º · Madrid, España',
+  // Listado oficial de agencias de campamentos de verano (Embajada de EEUU en España)
+  embassyListUrl: 'https://es.usembassy.gov/es/programas-en-estados-unidos/',
   legal: {
     privacy: 'https://intersunsetcampus.com/politica-de-privacidad/',
     legalNotice: 'https://intersunsetcampus.com/legal/',

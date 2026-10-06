@@ -469,6 +469,23 @@ export default function SemLanding() {
               </ul>
             </div>
           </div>
+          <div className="sem-wrap">
+            <div className="sem-embassy">
+              <UsFlag height={20} />
+              <p>
+                <strong>
+                  Aparecemos en el listado de agencias de campamentos de verano de la Embajada de EE.UU. en
+                  España.
+                </strong>{' '}
+                <a href={c.embassyListUrl} target="_blank" rel="noopener noreferrer" className="sem-link" data-location="embassy">
+                  Ver el listado oficial
+                </a>
+                <small>
+                  La inclusión en el listado no implica recomendación ni aprobación por parte de la Embajada.
+                </small>
+              </p>
+            </div>
+          </div>
         </section>
 
         {/* 12 · PRUEBA SOCIAL */}
