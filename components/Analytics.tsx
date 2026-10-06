@@ -3,11 +3,9 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { trackEvent } from '@/lib/analytics';
+import { trackEvent, ADS_ID } from '@/lib/analytics';
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-404PQHZ0WP';
-// Google Ads (formato AW-XXXXXXXXXX). Opcional: sin definir no se carga.
-const ADS_ID = process.env.NEXT_PUBLIC_GADS_ID;
 
 // La landing SEM (/monitor-camp-usa-2027) mide sus propios eventos.
 const isSemLanding = () => window.location.pathname.startsWith('/monitor-camp-usa-2027');
@@ -150,8 +148,8 @@ export default function Analytics() {
 window.gtag=gtag;
 gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
 gtag('js',new Date());
-gtag('config','${GA_ID}');${ADS_ID ? `
-gtag('config','${ADS_ID}',{allow_enhanced_conversions:true});` : ''}`}
+gtag('config','${GA_ID}');
+gtag('config','${ADS_ID}',{allow_enhanced_conversions:true});`}
       </Script>
     </>
   );

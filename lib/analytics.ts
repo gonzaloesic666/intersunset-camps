@@ -24,11 +24,12 @@ export function setUserData(data: { email?: string; phone_number?: string }) {
   whenGtag(() => window.gtag('set', 'user_data', data));
 }
 
-// Conversión de Google Ads (opcional). Requiere NEXT_PUBLIC_GADS_ID y
-// NEXT_PUBLIC_GADS_LEAD_LABEL (etiqueta de conversión del Lead).
+// Conversión de Google Ads "Lead Monitor Camp USA 2027". Los IDs son públicos (van en el
+// HTML de cualquier web con Ads); se pueden sobrescribir con NEXT_PUBLIC_GADS_ID y
+// NEXT_PUBLIC_GADS_LEAD_LABEL.
+export const ADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-16510639099';
+const ADS_LEAD_LABEL = process.env.NEXT_PUBLIC_GADS_LEAD_LABEL || '6sIJCM2lzJMdEPu38cA9';
+
 export function trackAdsLeadConversion() {
-  const id = process.env.NEXT_PUBLIC_GADS_ID;
-  const label = process.env.NEXT_PUBLIC_GADS_LEAD_LABEL;
-  if (!id || !label) return;
-  trackEvent('conversion', { send_to: `${id}/${label}` });
+  trackEvent('conversion', { send_to: `${ADS_ID}/${ADS_LEAD_LABEL}` });
 }
