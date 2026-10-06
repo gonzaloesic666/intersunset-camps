@@ -4,7 +4,8 @@ export default function LandingFooter() {
   return (
     <footer className="sem-footer">
       <div className="sem-wrap">
-        <strong style={{ color: '#fff' }}>Intersunset Campus</strong> · {campaign.city}
+        <strong style={{ color: '#fff' }}>Intersunset Campus</strong>
+        <div style={{ marginTop: 4 }}>{campaign.address}</div>
         <div className="sem-footer__row">
           <span>
             Email: <a href={`mailto:${campaign.email}`}>{campaign.email}</a>

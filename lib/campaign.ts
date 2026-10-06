@@ -27,6 +27,7 @@ export const campaign = {
   phone: '+34 919 61 84 40',
   phoneHref: 'tel:+34919618440',
   city: 'Madrid, España',
+  address: 'Paseo de la Castellana 171, 4º izq · Madrid, España',
   legal: {
     privacy: 'https://intersunsetcampus.com/politica-de-privacidad/',
     legalNotice: 'https://intersunsetcampus.com/legal/',

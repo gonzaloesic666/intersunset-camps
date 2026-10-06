@@ -283,3 +283,6 @@
 .sem-final__bg img { object-fit: cover; }
 .sem-final__bg::after { content: ''; position: absolute; inset: 0; background: rgba(20,19,48,.84); }
 .sem-final--photo .sem-wrap { position: relative; z-index: 1; }
+
+.sem-card--list { border-left: 4px solid var(--orange); padding: 22px 24px; }
+.sem-card--list .sem-ticks li { padding: 7px 0; }

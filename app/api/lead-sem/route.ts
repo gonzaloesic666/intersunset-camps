@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 
+// Destinatario principal de los leads de la landing SEM.
+const LEAD_EMAIL = process.env.LEAD_SEM_EMAIL || 'gonzaloireland@gmail.com';
+
 const esc = (v: unknown) =>
   String(v ?? '')
     .slice(0, 500)
@@ -74,15 +77,23 @@ export async function POST(request: Request) {
 
   try {
     const resend = new Resend(process.env.RESEND_API_KEY);
-    const { error } = await resend.emails.send({
-      from: 'Intersunset Campus <onboarding@resend.dev>',
-      to: [process.env.CONTACT_EMAIL as string],
-      replyTo: String(email),
-      subject: `Lead SEM Monitor Camp USA 2027: ${esc(nombre)}`,
-      html,
-    });
-    if (error) {
-      console.error('Resend error:', error);
+    const recipients = Array.from(
+      new Set([LEAD_EMAIL, process.env.CONTACT_EMAIL].filter(Boolean) as string[])
+    );
+    const results = await Promise.all(
+      recipients.map(async to => {
+        const { error } = await resend.emails.send({
+          from: 'Intersunset Campus <onboarding@resend.dev>',
+          to: [to],
+          replyTo: String(email),
+          subject: `Lead SEM Monitor Camp USA 2027: ${esc(nombre)}`,
+          html,
+        });
+        if (error) console.error('Resend error para', to, error);
+        return !error;
+      })
+    );
+    if (!results.some(Boolean)) {
       return NextResponse.json({ error: 'Error al enviar' }, { status: 500 });
     }
     return NextResponse.json({ success: true });

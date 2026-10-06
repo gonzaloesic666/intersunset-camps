@@ -1,5 +1,3 @@
-import fs from 'node:fs';
-import path from 'node:path';
 import Image from 'next/image';
 import { campaign as c, whatsappUrl } from '@/lib/campaign';
 import LeadForm from '@/components/landing/LeadForm';
@@ -121,9 +119,6 @@ const faqs = [
 ] as const;
 
 export default function SemLanding() {
-  // Foto de Gonzalo: si añades public/gonzalo.webp se muestra automáticamente.
-  const hasGonzalo = fs.existsSync(path.join(process.cwd(), 'public', 'gonzalo.webp'));
-
   return (
     <>
       <LandingTracker />
@@ -442,23 +437,23 @@ export default function SemLanding() {
 
         {/* 11 · POR QUÉ INTERSUNSET */}
         <section className="sem-soft">
-          <div className="sem-wrap sem-person">
-            {hasGonzalo && (
-              <Image
-                src="/gonzalo.webp"
-                alt="Gonzalo, director de Intersunset Campus"
-                width={340}
-                height={420}
-                loading="lazy"
-              />
-            )}
+          <div className="sem-wrap sem-split sem-split--center">
             <div>
               <h2 className="sem-h2">No estás solo durante el proceso</h2>
               <p className="sem-lead">
                 Irte a Estados Unidos con 18, 19, 20 o 21 años puede generar muchas dudas. Nuestro trabajo
                 es que sepas qué estás contratando, qué tienes que hacer y qué ocurre en cada paso.
               </p>
-              <ul className="sem-ticks" style={{ marginTop: 16 }}>
+              <p style={{ marginTop: 18, color: 'var(--muted)', fontSize: 17 }}>
+                El equipo de Intersunset Campus trabaja para que puedas vivir la experiencia de trabajar en
+                Estados Unidos con la máxima transparencia y sabiendo en todo momento qué estás contratando.
+              </p>
+              <p style={{ marginTop: 14 }}>
+                <CalendlyLink location="about">Habla con nosotros: reserva una llamada gratuita</CalendlyLink>
+              </p>
+            </div>
+            <div className="sem-card sem-card--list">
+              <ul className="sem-ticks">
                 {[
                   'Agencia española',
                   'Atención personalizada',
@@ -472,14 +467,6 @@ export default function SemLanding() {
                   <li key={t}>{t}</li>
                 ))}
               </ul>
-              <p style={{ marginTop: 18, color: 'var(--muted)' }}>
-                Soy Gonzalo, director de Intersunset Campus. Nuestro objetivo es que puedas vivir la
-                experiencia de trabajar en Estados Unidos con la máxima transparencia y sabiendo en todo
-                momento qué estás contratando.
-              </p>
-              <p style={{ marginTop: 14 }}>
-                <CalendlyLink location="about">Habla con nosotros: reserva una llamada gratuita</CalendlyLink>
-              </p>
             </div>
           </div>
         </section>
