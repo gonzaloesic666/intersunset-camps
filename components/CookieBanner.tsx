@@ -38,7 +38,7 @@ export default function CookieBanner() {
         zIndex: 9998,
         background: '#0F0E2E',
         borderTop: '2px solid #E38231',
-        padding: '20px 24px',
+        padding: '14px 16px',
         transform: visible && !hiding ? 'translateY(0)' : 'translateY(100%)',
         opacity: hiding ? 0 : 1,
         transition: 'transform 0.32s ease, opacity 0.28s ease',
@@ -60,8 +60,8 @@ export default function CookieBanner() {
         <p
           style={{
             color: 'rgba(255,255,255,0.85)',
-            fontSize: '14px',
-            lineHeight: 1.65,
+            fontSize: '13px',
+            lineHeight: 1.5,
             maxWidth: '640px',
             margin: 0,
           }}
@@ -87,7 +87,7 @@ export default function CookieBanner() {
               background: 'transparent',
               border: '1px solid rgba(255,255,255,0.3)',
               color: '#fff',
-              padding: '10px 20px',
+              padding: '9px 14px',
               borderRadius: '8px',
               fontSize: '14px',
               cursor: 'pointer',
@@ -105,7 +105,7 @@ export default function CookieBanner() {
             style={{
               background: '#E38231',
               color: '#fff',
-              padding: '10px 24px',
+              padding: '9px 18px',
               borderRadius: '8px',
               fontSize: '14px',
               fontWeight: 700,

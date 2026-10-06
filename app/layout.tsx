@@ -1,13 +1,7 @@
 import type { Metadata } from 'next';
 import { Montserrat } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
-import WhatsAppButton from '@/components/WhatsAppButton';
 import CookieBanner from '@/components/CookieBanner';
-import MobileCtaBar from '@/components/MobileCtaBar';
-import { FaqSchema } from '@/components/FaqSchema';
-import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
-import { ProgramSchema } from '@/components/ProgramSchema';
 import { ScrollRevealProvider } from '@/components/ScrollRevealProvider';
 import Analytics from '@/components/Analytics';
 
@@ -111,27 +105,6 @@ const localBusinessSchema = {
   sameAs: [],
 };
 
-const websiteSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  name: 'Intersunset Campus',
-  url: 'https://camps.intersunsetcampus.com',
-  description: 'Agencia especializada en programas Monitor Camp USA para universitarios españoles',
-  inLanguage: 'es-ES',
-  publisher: {
-    '@type': 'Organization',
-    name: 'Intersunset Campus',
-    telephone: '+34919618440',
-    email: 'camp@intersunsetcampus.com',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Paseo de la Castellana 171',
-      addressLocality: 'Madrid',
-      addressCountry: 'ES',
-    },
-  },
-};
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={montserrat.variable}>
@@ -146,19 +119,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ScrollRevealProvider>
           {children}
         </ScrollRevealProvider>
-        <WhatsAppButton />
         <CookieBanner />
-        <MobileCtaBar />
         <Analytics />
-        <FaqSchema />
-        <LocalBusinessSchema />
-        <ProgramSchema />
-        <Script
-          id="website-schema"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
-        />
       </body>
     </html>
   );

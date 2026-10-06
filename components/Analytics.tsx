@@ -6,6 +6,11 @@ import { usePathname } from 'next/navigation';
 import { trackEvent } from '@/lib/analytics';
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-404PQHZ0WP';
+// Google Ads (formato AW-XXXXXXXXXX). Opcional: sin definir no se carga.
+const ADS_ID = process.env.NEXT_PUBLIC_GADS_ID;
+
+// La landing SEM (/monitor-camp-usa-2027) mide sus propios eventos.
+const isSemLanding = () => window.location.pathname.startsWith('/monitor-camp-usa-2027');
 
 declare global {
   interface Window {
@@ -32,7 +37,12 @@ export default function Analytics() {
 
   useEffect(() => {
     const grant = () =>
-      window.gtag?.('consent', 'update', { analytics_storage: 'granted' });
+      window.gtag?.('consent', 'update', {
+        analytics_storage: 'granted',
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+      });
     if (localStorage.getItem('cookie-consent') === 'accepted') grant();
     window.addEventListener('cookie-consent-accepted', grant);
     return () => window.removeEventListener('cookie-consent-accepted', grant);
@@ -41,6 +51,7 @@ export default function Analytics() {
   // Clicks (delegados): Calendly, WhatsApp, teléfono, CTAs del blog, FAQ
   useEffect(() => {
     const onClick = (e: MouseEvent) => {
+      if (isSemLanding()) return;
       const target = e.target as Element | null;
       if (!target?.closest) return;
 
@@ -77,7 +88,7 @@ export default function Analytics() {
   useEffect(() => {
     let started = false;
     const onFocus = (e: FocusEvent) => {
-      if (started) return;
+      if (started || isSemLanding()) return;
       const t = e.target as Element | null;
       if (t?.closest?.('form')) {
         started = true;
@@ -91,7 +102,7 @@ export default function Analytics() {
   // Sección de precio visible
   useEffect(() => {
     const el = document.getElementById('precio');
-    if (!el) return;
+    if (!el || isSemLanding()) return;
     const obs = new IntersectionObserver(
       entries => {
         if (entries.some(en => en.isIntersecting)) {
@@ -117,7 +128,8 @@ export default function Analytics() {
 window.gtag=gtag;
 gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
 gtag('js',new Date());
-gtag('config','${GA_ID}');`}
+gtag('config','${GA_ID}');${ADS_ID ? `
+gtag('config','${ADS_ID}',{allow_enhanced_conversions:true});` : ''}`}
       </Script>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
