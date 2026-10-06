@@ -318,3 +318,6 @@
 .sem-embassy p { font-size: 15.5px; color: var(--ink); }
 .sem-embassy small { display: block; margin-top: 4px; font-size: 12.5px; color: #4a4870; }
 .sem-embassy .sem-link { display: flex; margin-top: 2px; }
+/* Footer: todos los elementos de cada fila con la misma caja y alineados */
+.sem-footer__row { align-items: center; gap: 0 22px; margin-top: 6px; }
+.sem-footer__row > span, .sem-footer__row > a { display: inline-flex; align-items: center; min-height: 44px; padding: 0; }
