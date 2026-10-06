@@ -18,7 +18,7 @@ export const campaign = {
   // Fechas orientativas de viaje (texto mostrado en Requisitos)
   travelWindow: 'entre finales de mayo y mediados de junio',
   returnWindow: 'finales de agosto',
-  calendlyUrl: 'https://calendly.com/intersunsetcampus/intersunset-campus?back=1&m',
+  calendlyUrl: 'https://calendly.com/intersunsetcampus/intersunset-campus-camp',
   whatsappNumber: '34641900180',
   whatsappDisplay: '+34 641 900 180',
   whatsappMessage:
