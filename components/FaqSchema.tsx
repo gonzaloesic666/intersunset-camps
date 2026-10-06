@@ -9,7 +9,7 @@ const faqData = {
       name: '¿Cuánto cuesta el programa Monitor Camp USA?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'El programa tiene un coste total de 595€ dividido en dos pagos. El primer pago de 150€ reserva tu plaza. El segundo pago de 445€ solo se realiza cuando un campamento te haya ofrecido contrato oficial. Incluye visado J1, seguro médico, alojamiento y salario mínimo de 2.100$.',
+        text: 'El programa tiene un coste total de 575€ dividido en dos pagos. El primer pago de 150€ reserva tu plaza. El segundo pago de 425€ solo se realiza cuando un campamento te haya ofrecido contrato oficial. Incluye visado J1, seguro médico, alojamiento y salario mínimo de 2.300$.',
       },
     },
     {
@@ -17,7 +17,7 @@ const faqData = {
       name: '¿Cuánto dinero voy a ganar como monitor en un American Camp?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Los campamentos americanos pagan un salario mínimo de 2.100$ por temporada de 9 semanas. Además el alojamiento y la comida están completamente incluidos, por lo que prácticamente todo lo que ganas es ahorro neto. Muchos participantes vuelven con más de 1.500€ ahorrados.',
+        text: 'Los campamentos americanos pagan un salario mínimo de 2.300$ por temporada de 9 semanas. Además el alojamiento y la comida están completamente incluidos, por lo que prácticamente todo lo que ganas es ahorro neto. Muchos participantes vuelven con más de 1.500€ ahorrados.',
       },
     },
     {
@@ -57,7 +57,7 @@ const faqData = {
       name: '¿Qué incluye exactamente el programa de Monitor Camp USA?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'El programa incluye: puesto como monitor durante 9 semanas, salario mínimo 2.100$, alojamiento gratuito, comida gratuita, gestión completa del visado J1, formulario DS-2019, tasa SEVIS, seguro médico, soporte de emergencia 24h, orientación previa al viaje y 30 días para viajar por EEUU tras el campamento.',
+        text: 'El programa incluye: puesto como monitor durante 9 semanas, salario mínimo 2.300$, alojamiento gratuito, comida gratuita, gestión completa del visado J1, formulario DS-2019, tasa SEVIS, seguro médico, soporte de emergencia 24h, orientación previa al viaje y 30 días para viajar por EEUU tras el campamento.',
       },
     },
     {

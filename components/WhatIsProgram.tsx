@@ -8,7 +8,7 @@ const highlights = [
   { label: 'Visado',      value: 'J1',                        Icon: FileCheck  },
   { label: 'Edad',        value: '18 – 30 años',              Icon: User       },
   { label: 'Alojamiento', value: 'Incluido en el campamento', Icon: Home       },
-  { label: 'Salario',     value: 'Mínimo 2.100$',             Icon: DollarSign },
+  { label: 'Salario',     value: 'Mínimo 2.300$',             Icon: DollarSign },
 ];
 
 export default function WhatIsProgram() {
@@ -28,7 +28,7 @@ export default function WhatIsProgram() {
                 <>El programa de <strong style={{ color: 'var(--navy)', fontWeight: 700 }}>Monitor de Campamento en Estados Unidos</strong> te permite pasar el verano trabajando como monitor o instructor en un campamento americano durante 9 semanas, entre mayo/junio y agosto.</>,
                 <>Trabajarás con niños y jóvenes de todo el mundo, enseñando actividades deportivas, artísticas, de naturaleza o cualquier otra especialidad que tengas: desde escalada hasta teatro, pasando por natación, cocina, música o tecnología.</>,
                 <>El programa se gestiona a través del <strong style={{ color: 'var(--navy)', fontWeight: 700 }}>Visado J1</strong>, que emite la Embajada de Estados Unidos y te permite trabajar legalmente en el país durante la temporada de verano.</>,
-                <>El campamento corre con los gastos de alojamiento y manutención completa, y además recibirás un salario mínimo de 2.100$. Intersunset Campus te guía en cada paso del proceso desde España.</>,
+                <>El campamento corre con los gastos de alojamiento y manutención completa, y además recibirás un salario mínimo de 2.300$. Intersunset Campus te guía en cada paso del proceso desde España.</>,
               ].map((text, i) => (
                 <p key={i} style={{ color: 'var(--gray-600)', lineHeight: 1.75, fontSize: '15px' }}>
                   {text}

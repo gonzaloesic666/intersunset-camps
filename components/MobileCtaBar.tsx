@@ -25,7 +25,7 @@ export default function MobileCtaBar() {
   }, []);
 
   return (
-    <div
+    <div data-ga-location="mobile_bar"
       className="md:hidden"
       style={{
         position: 'fixed',

@@ -23,7 +23,7 @@ const schema = {
   educationalProgramMode: 'work-based',
   offers: {
     '@type': 'Offer',
-    price: '595',
+    price: '575',
     priceCurrency: 'EUR',
     availability: 'https://schema.org/InStock',
     validFrom: '2026-09-01',

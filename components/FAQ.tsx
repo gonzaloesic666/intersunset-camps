@@ -5,11 +5,11 @@ import { useState } from 'react';
 const faqs = [
   {
     question: '¿Cuánto cuesta el programa?',
-    answer: 'El programa tiene un coste total de 595€ dividido en dos pagos. El primer pago de 150€ reserva tu plaza y activa el proceso de candidatura. El segundo pago de 445€ solo se realiza cuando un campamento te haya ofrecido contrato oficial, e incluye la gestión completa del visado J1, el seguro médico y el soporte durante toda tu estancia.',
+    answer: 'El programa tiene un coste total de 575€ dividido en dos pagos. El primer pago de 150€ reserva tu plaza y activa el proceso de candidatura. El segundo pago de 425€ solo se realiza cuando un campamento te haya ofrecido contrato oficial, e incluye la gestión completa del visado J1, el seguro médico y el soporte durante toda tu estancia.',
   },
   {
     question: '¿Cuánto dinero voy a ganar?',
-    answer: 'Los campamentos pagan un salario mínimo de 2.100$ por temporada (9 semanas). Además, el alojamiento y la comida están completamente incluidos, por lo que prácticamente todo lo que ganas es ahorro neto. Al terminar el programa, dispones de 30 días para viajar por EEUU antes de regresar.',
+    answer: 'Los campamentos pagan un salario mínimo de 2.300$ por temporada (9 semanas). Además, el alojamiento y la comida están completamente incluidos, por lo que prácticamente todo lo que ganas es ahorro neto. Al terminar el programa, dispones de 30 días para viajar por EEUU antes de regresar.',
   },
   {
     question: '¿Qué nivel de inglés necesito exactamente?',
@@ -29,7 +29,7 @@ const faqs = [
   },
   {
     question: '¿Qué incluye exactamente el programa?',
-    answer: 'El programa incluye: puesto como monitor durante 9 semanas, salario mínimo 2.100$, alojamiento gratuito en el campamento, comida gratuita, gestión del visado J1, formulario DS-2019, tasa SEVIS, seguro médico durante todo el programa, soporte 24h durante tu estancia, orientación previa al viaje y 30 días para viajar por EEUU al finalizar.',
+    answer: 'El programa incluye: puesto como monitor durante 9 semanas, salario mínimo 2.300$, alojamiento gratuito en el campamento, comida gratuita, gestión del visado J1, formulario DS-2019, tasa SEVIS, seguro médico durante todo el programa, soporte 24h durante tu estancia, orientación previa al viaje y 30 días para viajar por EEUU al finalizar.',
   },
   {
     question: '¿Por qué elegir Intersunset Campus?',

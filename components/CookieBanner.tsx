@@ -19,6 +19,7 @@ export default function CookieBanner() {
 
   const dismiss = (value: 'accepted' | 'rejected') => {
     localStorage.setItem('cookie-consent', value);
+    if (value === 'accepted') window.dispatchEvent(new Event('cookie-consent-accepted'));
     setHiding(true);
     setTimeout(() => setMounted(false), 350);
   };

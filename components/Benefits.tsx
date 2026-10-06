@@ -10,7 +10,7 @@ const benefits = [
   },
   {
     Icon: DollarSign,
-    title: 'Salario mínimo 2.100$ + alojamiento incluido',
+    title: 'Salario mínimo 2.300$ + alojamiento incluido',
     description: 'El campamento paga tu sueldo y cubre alojamiento y manutención completa. Sin gastos de vida, la mayor parte del dinero que ganas es ahorro neto.',
   },
   {

@@ -5,12 +5,12 @@ const CALENDLY = 'https://calendly.com/intersunsetcampus/intersunset-campus?back
 
 const badges = [
   'Visado J1 gestionado',
-  'Salario mínimo 2.100$',
+  'Salario mínimo 2.300$',
   '30 días para viajar por EEUU',
 ];
 
 const cardStats = [
-  { value: '2.100$',    label: 'Salario mínimo garantizado' },
+  { value: '2.300$',    label: 'Salario mínimo garantizado' },
   { value: '9 semanas', label: 'En un American Camp USA' },
   { value: '30 días',   label: 'Para viajar por Estados Unidos' },
 ];

@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     title: '¿Cuánto cuesta ser monitor en un campamento americano? Guía completa 2027',
     description:
       'Descubre el precio real del programa Monitor Camp USA: qué incluye, qué no incluye y cómo financiar tu aventura en Estados Unidos.',
-    date: '2026-04-28',
+    date: '2026-10-05',
     readTime: '6 min',
     category: 'Precios y financiación',
     content: `
@@ -24,9 +24,9 @@ Si estás pensando en pasar el verano trabajando en un campamento americano, pro
 
 La respuesta tiene dos partes: lo que pagas a la agencia y lo que recibes a cambio. Porque a diferencia de otros programas de intercambio, como monitor de campamento en EEUU **el campamento te paga a ti**.
 
-### El precio del programa: 595€ en dos pagos
+### El precio del programa: 575€ en dos pagos
 
-El programa Monitor Camp USA de Intersunset Campus tiene un coste total de **595€**, dividido en dos pagos muy sencillos:
+El programa Monitor Camp USA de Intersunset Campus tiene un coste total de **575€**, dividido en dos pagos muy sencillos:
 
 **Primer pago: 150€ — Reserva tu plaza**
 
@@ -36,7 +36,7 @@ Este pago inicial asegura tu participación en el programa. Con él obtienes:
 - Orientación personalizada para crear tu perfil
 - Preparación completa para la entrevista con campamentos
 
-**Segundo pago: 445€ — Solo cuando tengas contrato**
+**Segundo pago: 425€ — Solo cuando tengas contrato**
 
 Y aquí viene la parte que más sorprende a la gente: **el segundo pago solo se realiza cuando un campamento americano te haya ofrecido un contrato oficial**. Es decir, si no consigues campamento, no pagas el segundo plazo.
 
@@ -61,12 +61,12 @@ Es importante que conozcas también los gastos que corren por tu cuenta:
 
 Aquí está la gran diferencia con otros programas de intercambio. Como monitor de campamento en EEUU:
 
-- **Salario mínimo garantizado: 2.100$** por temporada (9 semanas)
+- **Salario mínimo garantizado: 2.300$** por temporada (9 semanas)
 - **Alojamiento completamente gratuito** durante toda la estancia
 - **Comida gratuita** durante las 9 semanas en el campamento
 - **30 días adicionales** para viajar por Estados Unidos al terminar
 
-Haciendo el cálculo: si tu salario es de 2.100$ y no tienes gastos de alojamiento ni comida durante 9 semanas, prácticamente todo lo que ganas es ahorro neto. Muchos de nuestros participantes vuelven a España con **más de 1.500€ ahorrados**.
+Haciendo el cálculo: si tu salario es de 2.300$ y no tienes gastos de alojamiento ni comida durante 9 semanas, prácticamente todo lo que ganas es ahorro neto. Muchos de nuestros participantes vuelven a España con **más de 1.500€ ahorrados**.
 
 ### ¿Es rentable económicamente?
 
@@ -74,16 +74,16 @@ Vamos con los números reales:
 
 | Concepto | Coste |
 |---|---|
-| Programa Intersunset | 595€ |
+| Programa Intersunset | 575€ |
 | Embajada + Visa Fee | ~435$ |
 | Vuelos | ~550€ |
 | **Total gastos** | **~1.600€** |
 
 | Concepto | Ingreso |
 |---|---|
-| Salario campamento | 2.100$ (~1.950€) |
+| Salario campamento | 2.300$ (~2.140€) |
 | Ahorro en alojamiento 9 semanas | ~1.800€ |
-| **Total valor recibido** | **~3.750€** |
+| **Total valor recibido** | **~3.950€** |
 
 El programa no solo se autofinancia: muchos participantes **vuelven con dinero ahorrado** después de haber vivido una experiencia única en Estados Unidos.
 
@@ -93,7 +93,7 @@ El calendario habitual es:
 
 1. **Septiembre-Noviembre**: Reserva tu plaza con 150€
 2. **Noviembre-Enero**: Entrevistas con campamentos
-3. **Enero-Febrero**: Contrato firmado → segundo pago de 445€
+3. **Enero-Febrero**: Contrato firmado → segundo pago de 425€
 4. **Febrero-Abril**: Gestión del visado J1
 5. **Mayo-Junio**: ¡A Estados Unidos!
 
@@ -109,7 +109,7 @@ En Intersunset Campus somos transparentes con todos los costes desde el primer m
     title: 'Tipos de monitor en American Camps: Activity Counselor vs General Counselor',
     description:
       'Conoce las diferencias entre los roles de Activity Counselor y General Counselor en los campamentos americanos y descubre cuál encaja mejor con tu perfil.',
-    date: '2026-04-25',
+    date: '2026-10-02',
     readTime: '5 min',
     category: 'El programa',
     content: `
@@ -194,7 +194,7 @@ Cada campamento tiene sus propias necesidades y perfiles, y nosotros te ayudamos
     slug: 'visa-j1-campamentos-eeuu-proceso-completo',
     title: 'Visa J1 para campamentos en EEUU: proceso completo paso a paso 2027',
     description: 'Guía completa del visado J1 para monitores de campamento: documentación, tiempos, costes y todo lo que necesitas saber antes de solicitarlo.',
-    date: '2026-04-22',
+    date: '2026-09-29',
     readTime: '8 min',
     category: 'Visado J1',
     content: `
@@ -301,7 +301,7 @@ El proceso puede parecer complejo pero con el acompañamiento correcto es comple
     slug: 'cuanto-se-gana-monitor-campamento-americano',
     title: '¿Cuánto dinero se gana como monitor en un campamento americano? 2027',
     description: 'Descubre el salario real de un monitor de campamento en EEUU, cuánto puedes ahorrar y por qué muchos participantes vuelven con más de 1.500€ en el bolsillo.',
-    date: '2026-04-20',
+    date: '2026-09-26',
     readTime: '5 min',
     category: 'Precios y financiación',
     content: `
@@ -311,9 +311,9 @@ Una de las preguntas que más nos hacen en Intersunset Campus es: **¿cuánto di
 
 La respuesta depende del campamento, tu experiencia y el tipo de rol que desempeñes. Pero hay una garantía mínima que todos nuestros participantes reciben.
 
-### El salario mínimo garantizado: 2.100$
+### El salario mínimo garantizado: 2.300$
 
-Todos los monitores que participan en el programa de Intersunset Campus reciben un **salario mínimo de 2.100$** por temporada de 9 semanas. Este es el compromiso que el campamento asume contigo desde el momento en que firmas el contrato.
+Todos los monitores que participan en el programa de Intersunset Campus reciben un **salario mínimo de 2.300$** por temporada de 9 semanas. Este es el compromiso que el campamento asume contigo desde el momento en que firmas el contrato.
 
 Algunos campamentos pagan más dependiendo de tu experiencia, tus habilidades específicas o el tipo de actividad que impartas. Los monitores con experiencia previa en campamentos o con habilidades muy demandadas como natación, escalada o música pueden llegar a ganar **entre 2.500$ y 3.000$** por temporada.
 
@@ -331,14 +331,14 @@ Esto significa que prácticamente **todo el dinero que ganas es ahorro neto**.
 
 | Concepto | Cantidad |
 |---|---|
-| Salario del campamento | 2.100$ (~1.950€) |
+| Salario del campamento | 2.300$ (~2.140€) |
 | Ahorro en alojamiento (9 semanas) | ~1.800€ |
 | Ahorro en comida (9 semanas) | ~900€ |
-| **Valor total recibido** | **~4.650€** |
+| **Valor total recibido** | **~4.850€** |
 
 | Concepto | Cantidad |
 |---|---|
-| Programa Intersunset Campus | 595€ |
+| Programa Intersunset Campus | 575€ |
 | Vuelos | ~550€ |
 | Entrevista Embajada + Visa Fee | ~435$ |
 | **Total gastos** | **~1.600€** |
@@ -366,7 +366,7 @@ Al terminar el campamento tienes **30 días adicionales** para viajar por Estado
     slug: 'monitor-camp-usa-nivel-ingles-b1',
     title: 'Monitor Camp USA con nivel B1 de inglés: ¿es posible? Todo lo que necesitas saber',
     description: 'El miedo al nivel de inglés es la principal duda antes de apuntarse. Descubre qué nivel necesitas realmente para ser monitor en un campamento americano.',
-    date: '2026-04-18',
+    date: '2026-09-24',
     readTime: '5 min',
     category: 'Requisitos',
     content: `
@@ -425,7 +425,7 @@ En la cita gratuita inicial hacemos una valoración informal de tu nivel de ingl
     slug: 'guia-campamentos-lou-henry-hoover-greenwoods-camp-tuckaho',
     title: 'Lou Henry Hoover Camp, Greenwoods Camp y Camp Tuckaho: guía completa para monitores españoles',
     description: 'Conoce en detalle los tres campamentos americanos con los que trabaja Intersunset Campus: ubicación, actividades, ambiente y qué esperar si te asignan a cada uno.',
-    date: '2026-04-15',
+    date: '2026-09-21',
     readTime: '7 min',
     category: 'Los campamentos',
     content: `
@@ -490,7 +490,7 @@ La asignación de campamento depende de tu perfil, tus habilidades y la disponib
     slug: 'que-llevar-campamento-americano-monitor',
     title: 'Qué llevar a un campamento americano: lista completa para monitores españoles 2027',
     description: 'Lista definitiva de todo lo que necesitas llevar como monitor a un campamento americano: ropa, calzado, documentación, medicamentos y consejos prácticos.',
-    date: '2026-04-12',
+    date: '2026-09-18',
     readTime: '6 min',
     category: 'Preparación',
     content: `
@@ -554,7 +554,7 @@ Los campamentos son entornos activos al aire libre. Enfócate en ropa cómoda, r
     slug: 'dudas-frecuentes-monitor-camp-usa',
     title: 'Las 10 dudas más frecuentes antes de ser monitor en EEUU (respondidas con honestidad)',
     description: 'Respondemos con total honestidad las preguntas más difíciles que nos hacen antes de apuntarse al programa Monitor Camp USA.',
-    date: '2026-04-10',
+    date: '2026-09-16',
     readTime: '7 min',
     category: 'FAQ',
     content: `
@@ -592,7 +592,7 @@ Si os apuntáis juntos, intentamos encontraros campamentos en la misma zona. No 
 
 Preparamos la entrevista contigo y solo te presentamos a campamentos cuando creemos que tienes posibilidades reales. Si no pasas con el primer campamento, analizamos qué pasó y lo intentamos con otro.
 
-### 8. ¿El precio de 595€ es todo o habrá gastos sorpresa?
+### 8. ¿El precio de 575€ es todo o habrá gastos sorpresa?
 
 Los gastos adicionales son conocidos desde el principio: vuelos (~550€), entrevista Embajada (~185$), Visa Integrity Fee (250$, reembolsable) y certificado de antecedentes (3,86€). No hay sorpresas.
 
@@ -611,7 +611,7 @@ El primer pago de 150€ no es reembolsable si decides abandonar por causas prop
     slug: 'mejores-estados-eeuu-monitor-campamento',
     title: 'Los mejores estados de EEUU para trabajar como monitor de campamento en 2027',
     description: 'Descubre qué estados americanos tienen los mejores campamentos de verano: Nueva Inglaterra, California, el Medio Oeste y más. Guía completa para monitores españoles.',
-    date: '2026-04-08',
+    date: '2026-09-14',
     readTime: '6 min',
     category: 'Destinos',
     content: `
@@ -662,7 +662,7 @@ Al terminar el campamento tienes 30 días para explorar EEUU. La ubicación del 
     slug: 'como-preparar-entrevista-campamento-americano',
     title: 'Cómo preparar la entrevista con un campamento americano: guía definitiva',
     description: 'Todo lo que necesitas saber para preparar y superar la entrevista con un campamento americano: preguntas frecuentes, consejos prácticos y errores a evitar.',
-    date: '2026-04-05',
+    date: '2026-09-11',
     readTime: '7 min',
     category: 'Preparación',
     content: `

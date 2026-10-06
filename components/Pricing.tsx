@@ -32,7 +32,7 @@ export default function Pricing() {
             Un solo programa. Dos pagos sencillos.
           </p>
           <div style={{ display: 'inline-flex', alignItems: 'baseline', gap: '8px' }}>
-            <span style={{ fontSize: '52px', fontWeight: 900, color: '#fff', lineHeight: 1 }}>595€</span>
+            <span style={{ fontSize: '52px', fontWeight: 900, color: '#fff', lineHeight: 1 }}>575€</span>
             <span style={{ color: 'var(--gray-400)', fontSize: '18px' }}>total</span>
           </div>
         </div>
@@ -90,7 +90,7 @@ export default function Pricing() {
             </a>
           </div>
 
-          {/* Card 2 — 445€ DESTACADA */}
+          {/* Card 2 — 425€ DESTACADA */}
           <div
             className="reveal-scale reveal-delay-2"
             style={{
@@ -146,7 +146,7 @@ export default function Pricing() {
               Segundo pago
             </span>
             <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '4px' }}>
-              <span style={{ fontSize: '44px', fontWeight: 900, color: '#fff', lineHeight: 1 }}>445€</span>
+              <span style={{ fontSize: '44px', fontWeight: 900, color: '#fff', lineHeight: 1 }}>425€</span>
             </div>
             <p style={{ color: 'rgba(255,255,255,0.90)', fontWeight: 700, fontSize: '18px', marginBottom: '28px' }}>
               Cuando tengas contrato

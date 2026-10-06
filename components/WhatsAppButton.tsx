@@ -44,6 +44,7 @@ export default function WhatsAppButton() {
       {/* Button */}
       <a
         href={WA_URL}
+        data-ga-location="whatsapp_flotante"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Contactar por WhatsApp"

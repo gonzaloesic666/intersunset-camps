@@ -44,7 +44,7 @@ const localBusinessData = {
           description:
             'Programa para trabajar como monitor en campamentos americanos con visado J1',
         },
-        price: '595',
+        price: '575',
         priceCurrency: 'EUR',
       },
     ],

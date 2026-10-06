@@ -6,7 +6,7 @@ const WA_URL = 'https://wa.me/34641900180';
 
 const included = [
   'Puesto como Monitor durante 9 semanas',
-  'Salario mínimo de 2.100$',
+  'Salario mínimo de 2.300$',
   'Alojamiento gratuito en el campamento',
   'Comida gratuita durante toda la estancia',
   'Visado J1 gestionado por Intersunset',

@@ -9,6 +9,7 @@ import { FaqSchema } from '@/components/FaqSchema';
 import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
 import { ProgramSchema } from '@/components/ProgramSchema';
 import { ScrollRevealProvider } from '@/components/ScrollRevealProvider';
+import Analytics from '@/components/Analytics';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     template: '%s | Intersunset Campus',
   },
   description:
-    'Trabaja como monitor en American Camps USA este verano. Visado J1 gestionado, salario mínimo 2.100$, alojamiento incluido. Agencia especializada en Camp Monitor USA en España. Plazas 2027 disponibles.',
+    'Trabaja como monitor en American Camps USA este verano. Visado J1 gestionado, salario mínimo 2.300$, alojamiento incluido. Agencia especializada en Camp Monitor USA en España. Plazas 2027 disponibles.',
   keywords: [
     'monitor camp usa',
     'american camps',
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
     siteName: 'Intersunset Campus',
     title: 'Monitor Camp USA 2027 | American Camps en España',
     description:
-      'Trabaja como monitor en American Camps USA. Visado J1, salario 2.100$, alojamiento incluido. Agencia especializada en España.',
+      'Trabaja como monitor en American Camps USA. Visado J1, salario 2.300$, alojamiento incluido. Agencia especializada en España.',
     images: [
       {
         url: '/og-image.jpg',
@@ -85,7 +86,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Monitor Camp USA 2027 | Intersunset Campus',
-    description: 'Trabaja en American Camps USA. Visado J1, salario 2.100$, alojamiento incluido.',
+    description: 'Trabaja en American Camps USA. Visado J1, salario 2.300$, alojamiento incluido.',
     images: ['/og-image.jpg'],
     creator: '@intersunsetcampus',
   },
@@ -148,6 +149,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <WhatsAppButton />
         <CookieBanner />
         <MobileCtaBar />
+        <Analytics />
         <FaqSchema />
         <LocalBusinessSchema />
         <ProgramSchema />
