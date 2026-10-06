@@ -20,7 +20,6 @@ const included = [
 
 const notIncluded = [
   { text: 'Tarifa de entrevista en la Embajada: ~185$' },
-  { text: 'Visa Integrity Fee: 250$ *', note: true },
   { text: 'Vuelos desde España: ~550€ aprox.' },
   { text: 'Certificado de antecedentes penales: 3,86€' },
 ];
@@ -135,12 +134,6 @@ export default function IncludesSection() {
                 </div>
               ))}
             </div>
-
-            {/* Footnote */}
-            <p style={{ color: 'var(--gray-400)', fontSize: '12px', marginTop: '10px', lineHeight: 1.6 }}>
-              * La Visa Integrity Fee puede ser reembolsada al finalizar el programa si se han
-              cumplido todas las condiciones.
-            </p>
           </div>
         </div>
 

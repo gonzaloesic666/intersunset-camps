@@ -53,7 +53,6 @@ Con este segundo pago se gestiona:
 Es importante que conozcas también los gastos que corren por tu cuenta:
 
 - **Tarifa de entrevista en la Embajada**: aproximadamente 185$
-- **Visa Integrity Fee**: 250$ (reembolsable al finalizar el programa si cumples todas las condiciones)
 - **Vuelos desde España**: alrededor de 550€
 - **Certificado de antecedentes penales**: 3,86€
 
@@ -75,9 +74,9 @@ Vamos con los números reales:
 | Concepto | Coste |
 |---|---|
 | Programa Intersunset | 575€ |
-| Embajada + Visa Fee | ~435$ |
+| Entrevista Embajada | ~185$ |
 | Vuelos | ~550€ |
-| **Total gastos** | **~1.600€** |
+| **Total gastos** | **~1.300€** |
 
 | Concepto | Ingreso |
 |---|---|
@@ -340,8 +339,8 @@ Esto significa que prácticamente **todo el dinero que ganas es ahorro neto**.
 |---|---|
 | Programa Intersunset Campus | 575€ |
 | Vuelos | ~550€ |
-| Entrevista Embajada + Visa Fee | ~435$ |
-| **Total gastos** | **~1.600€** |
+| Entrevista Embajada | ~185$ |
+| **Total gastos** | **~1.300€** |
 
 **Resultado: ahorro neto de aproximadamente 1.000-1.500€** después de cubrir todos los gastos del programa.
 
@@ -594,7 +593,7 @@ Preparamos la entrevista contigo y solo te presentamos a campamentos cuando cree
 
 ### 8. ¿El precio de 575€ es todo o habrá gastos sorpresa?
 
-Los gastos adicionales son conocidos desde el principio: vuelos (~550€), entrevista Embajada (~185$), Visa Integrity Fee (250$, reembolsable) y certificado de antecedentes (3,86€). No hay sorpresas.
+Los gastos adicionales son conocidos desde el principio: vuelos (~550€), entrevista Embajada (~185$) y certificado de antecedentes (3,86€). No hay sorpresas.
 
 ### 9. ¿Puedo repetir el programa al año siguiente?
 
