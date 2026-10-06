@@ -13,7 +13,7 @@ const schema = {
     url: 'https://intersunsetcampus.com',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Paseo de la Castellana 171',
+      streetAddress: 'Paseo de la Castellana 257, Torre Sur, 1º',
       addressLocality: 'Madrid',
       addressCountry: 'ES',
     },
