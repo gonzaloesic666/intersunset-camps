@@ -11,6 +11,14 @@ import UsFlag from '@/components/landing/UsFlag';
 
 const CTA_TEXT = 'COMPROBAR SI CUMPLES LOS REQUISITOS';
 
+function Ph({ src, alt, ratio = '4 / 3', sizes = '(min-width: 900px) 33vw, 100vw' }: { src: string; alt: string; ratio?: string; sizes?: string }) {
+  return (
+    <div className="sem-ph" style={{ aspectRatio: ratio }}>
+      <Image src={`/landing/${src}.webp`} alt={alt} fill sizes={sizes} quality={70} loading="lazy" />
+    </div>
+  );
+}
+
 function Cta({ where }: { where: string }) {
   return (
     <a href="#formulario" className="sem-btn sem-btn--block" data-cta={where}>
@@ -197,12 +205,17 @@ export default function SemLanding() {
         {/* 4 · QUÉ ES */}
         <section>
           <div className="sem-wrap">
-            <span className="sem-eyebrow">El programa</span>
-            <h2 className="sem-h2">Trabaja en un American Camp este verano</h2>
-            <p className="sem-lead">
-              Durante {c.durationBetween} vivirás y trabajarás en un campamento de verano en Estados
-              Unidos, rodeado de jóvenes de todo el mundo.
-            </p>
+            <div className="sem-split sem-split--center">
+              <div>
+                <span className="sem-eyebrow">El programa</span>
+                <h2 className="sem-h2">Trabaja en un American Camp este verano</h2>
+                <p className="sem-lead">
+                  Durante {c.durationBetween} vivirás y trabajarás en un campamento de verano en Estados
+                  Unidos, rodeado de jóvenes de todo el mundo.
+                </p>
+              </div>
+              <Ph src="camp-counselors" alt="Monitoras y campistas en un campamento de verano en Estados Unidos" ratio="16 / 10" sizes="(min-width: 900px) 50vw, 100vw" />
+            </div>
             <div className="sem-grid sem-grid--3">
               <div className="sem-card">
                 <h3>Tu trabajo</h3>
@@ -232,6 +245,20 @@ export default function SemLanding() {
                 </div>
               ))}
             </div>
+            <div className="sem-trio">
+              <figure>
+                <Ph src="instalaciones" alt="Instalaciones de un campamento junto a un lago" ratio="1 / 1" sizes="(min-width: 900px) 33vw, 33vw" />
+                <figcaption>Instalaciones junto al lago</figcaption>
+              </figure>
+              <figure>
+                <Ph src="comedor" alt="Monitor y campista en el comedor del campamento" ratio="1 / 1" sizes="(min-width: 900px) 33vw, 33vw" />
+                <figcaption>Comida en el comedor</figcaption>
+              </figure>
+              <figure>
+                <Ph src="cuatro-julio" alt="Fuegos artificiales del 4 de julio en un campamento" ratio="1 / 1" sizes="(min-width: 900px) 33vw, 33vw" />
+                <figcaption>4 de julio en el campamento</figcaption>
+              </figure>
+            </div>
           </div>
         </section>
 
@@ -245,7 +272,8 @@ export default function SemLanding() {
             </p>
             <div className="sem-grid sem-grid--2">
               <div className="sem-card">
-                <h3>Activity Counselor</h3>
+                <Ph src="tenis" alt="Monitor de tenis dando una clase en un campamento" ratio="16 / 10" sizes="(min-width: 900px) 50vw, 100vw" />
+                <h3 style={{ marginTop: 14 }}>Activity Counselor</h3>
                 <p>Especialista en una actividad.</p>
                 <ul className="sem-pills">
                   {activities.map(a => (
@@ -254,7 +282,8 @@ export default function SemLanding() {
                 </ul>
               </div>
               <div className="sem-card">
-                <h3>General Counselor</h3>
+                <Ph src="monitoras" alt="Monitoras con su grupo de campistas frente a la cabaña" ratio="16 / 10" sizes="(min-width: 900px) 50vw, 100vw" />
+                <h3 style={{ marginTop: 14 }}>General Counselor</h3>
                 <p>
                   Acompañas a un grupo de campistas durante el día, actuando como referente y
                   responsable de sus actividades y convivencia.
@@ -399,6 +428,18 @@ export default function SemLanding() {
           </div>
         </section>
 
+        {/* Día a día */}
+        <section>
+          <div className="sem-wrap">
+            <h2 className="sem-h2 sem-center">Así se vive un American Camp</h2>
+            <div className="sem-grid sem-grid--3">
+              <Ph src="staff" alt="Monitores tocando la guitarra ante todo el campamento" ratio="4 / 3" />
+              <Ph src="monitor-futbol" alt="Monitor con un grupo de campistas durante una actividad de fútbol" ratio="4 / 3" />
+              <Ph src="monitora-nina" alt="Monitora y campista riendo junto a un flotador gigante" ratio="4 / 3" />
+            </div>
+          </div>
+        </section>
+
         {/* 11 · POR QUÉ INTERSUNSET */}
         <section className="sem-soft">
           <div className="sem-wrap sem-person">
@@ -498,7 +539,10 @@ export default function SemLanding() {
         </section>
 
         {/* 15 · CONVERSIÓN FINAL */}
-        <section className="sem-dark sem-final">
+        <section className="sem-dark sem-final sem-final--photo">
+          <div className="sem-final__bg" aria-hidden="true">
+            <Image src="/landing/lacrosse.webp" alt="" fill sizes="100vw" quality={60} loading="lazy" />
+          </div>
           <div className="sem-wrap">
             <h2 className="sem-h2">¿Listo para saber si puedes vivir este verano en EEUU?</h2>
             <p className="sem-lead">
