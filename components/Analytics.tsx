@@ -33,8 +33,9 @@ function clickLocation(el: Element): string {
 export default function Analytics() {
   const pathname = usePathname();
 
-  // gtag.js (175 KB) se carga tras la primera interacción o a los 3 s: así no compite con el
-  // contenido visible. Los eventos se acumulan en dataLayer y se envían al cargar.
+  // gtag.js (175 KB) se carga en cuanto termina la carga de la página (o ante la primera
+  // interacción, lo que ocurra antes): no compite con el contenido visible pero no pierde
+  // visitas rápidas. Los eventos se acumulan en dataLayer y se envían al cargar.
   useEffect(() => {
     let loaded = false;
     const events = ['pointerdown', 'keydown', 'scroll', 'touchstart'];
@@ -42,16 +43,18 @@ export default function Analytics() {
       if (loaded) return;
       loaded = true;
       events.forEach(e => window.removeEventListener(e, load));
+      window.removeEventListener('load', load);
       const el = document.createElement('script');
       el.async = true;
       el.src = `https://www.googletagmanager.com/gtag/js?id=${GA_ID}`;
       document.head.appendChild(el);
     };
     events.forEach(e => window.addEventListener(e, load, { once: true, passive: true }));
-    const timer = setTimeout(load, 3000);
+    if (document.readyState === 'complete') load();
+    else window.addEventListener('load', load, { once: true });
     return () => {
-      clearTimeout(timer);
       events.forEach(e => window.removeEventListener(e, load));
+      window.removeEventListener('load', load);
     };
   }, []);
 
