@@ -4,6 +4,7 @@ import './globals.css';
 import CookieBanner from '@/components/CookieBanner';
 import { ScrollRevealProvider } from '@/components/ScrollRevealProvider';
 import Analytics from '@/components/Analytics';
+import { Analytics as VercelAnalytics } from '@vercel/analytics/next';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -119,6 +120,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ScrollRevealProvider>
         <CookieBanner />
         <Analytics />
+        {/* Vercel Web Analytics: sin cookies, mide todas las visitas (páginas, origen, dispositivo) */}
+        <VercelAnalytics />
       </body>
     </html>
   );
