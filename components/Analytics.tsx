@@ -59,16 +59,27 @@ export default function Analytics() {
   }, []);
 
   useEffect(() => {
-    const grant = () =>
+    const grant = (replayPageView: boolean) => {
       window.gtag?.('consent', 'update', {
         analytics_storage: 'granted',
         ad_storage: 'granted',
         ad_user_data: 'granted',
         ad_personalization: 'granted',
       });
-    if (localStorage.getItem('cookie-consent') === 'accepted') grant();
-    window.addEventListener('cookie-consent-accepted', grant);
-    return () => window.removeEventListener('cookie-consent-accepted', grant);
+      // La visita inicial se envía con el consentimiento denegado (sin cookies, no cuenta como
+      // usuario en los informes). Si el usuario acepta después, la reenviamos ya con consentimiento.
+      if (replayPageView) {
+        window.gtag?.('event', 'page_view', {
+          page_location: window.location.href,
+          page_title: document.title,
+        });
+      }
+    };
+    // Visitante que ya aceptó en una visita anterior: el consentimiento va antes que la visita
+    if (localStorage.getItem('cookie-consent') === 'accepted') grant(false);
+    const onAccept = () => grant(true);
+    window.addEventListener('cookie-consent-accepted', onAccept);
+    return () => window.removeEventListener('cookie-consent-accepted', onAccept);
   }, []);
 
   // Clicks (delegados): Calendly, WhatsApp, teléfono, CTAs del blog, FAQ
@@ -149,7 +160,7 @@ export default function Analytics() {
       <Script id="ga-init" strategy="afterInteractive">
         {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
 window.gtag=gtag;
-gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied'});
+gtag('consent','default',{analytics_storage:'denied',ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',wait_for_update:500});
 gtag('js',new Date());
 gtag('config','${GA_ID}');
 gtag('config','${ADS_ID}',{allow_enhanced_conversions:true});`}
