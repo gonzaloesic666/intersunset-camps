@@ -37,6 +37,8 @@ async function sendToCrm(body: Record<string, unknown>): Promise<boolean> {
     put('gbraid', body.gbraid);
     put('wbraid', body.wbraid);
     put('url_landing', body.landing_url);
+    // Vincula la sesión de navegación (fuente, referrer, UTM, ciudad...) con el contacto
+    put('isc_session_id', body.isc_session_id);
 
     const res = await fetch(CRM_LEADS_URL, {
       method: 'POST',
@@ -80,6 +82,7 @@ const FIELDS: [string, string][] = [
   ['wbraid', 'wbraid'],
   ['landing_url', 'URL de landing'],
   ['formulario', 'Formulario'],
+  ['isc_session_id', 'Sesión CRM'],
 ];
 
 export async function POST(request: Request) {

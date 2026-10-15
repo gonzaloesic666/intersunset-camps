@@ -3,6 +3,7 @@
 import { useEffect } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import { captureAttribution } from '@/lib/attribution';
+import { trackCrmVisit } from '@/lib/crm-tracking';
 
 // Tracking de la landing SEM: landing_view, cta_click, form_start,
 // whatsapp_click y calendar_click (delegados, sin tocar cada botón).
@@ -39,11 +40,16 @@ export default function LandingTracker() {
       }
     };
 
+    // Visita hacia el CRM: ya aceptó cookies, o lo hace durante la visita
+    trackCrmVisit();
+    window.addEventListener('cookie-consent-accepted', trackCrmVisit);
+
     document.addEventListener('click', onClick);
     document.addEventListener('focusin', onFocus);
     return () => {
       document.removeEventListener('click', onClick);
       document.removeEventListener('focusin', onFocus);
+      window.removeEventListener('cookie-consent-accepted', trackCrmVisit);
     };
   }, []);
 
