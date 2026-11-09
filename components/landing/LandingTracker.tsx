@@ -26,7 +26,9 @@ export default function LandingTracker() {
       if (!a) return;
       const href = a.getAttribute('href') || '';
       const location = a.getAttribute('data-location') || '';
-      if (href.includes('wa.me')) trackEvent('whatsapp_click', { location });
+      if (href.includes('wa.me')) {
+        trackEvent('whatsapp_click', { location, option: a.getAttribute('data-wa-option') || 'requisitos' });
+      }
       else if (href.includes('calendly.com')) trackEvent('calendar_click', { location });
     };
 

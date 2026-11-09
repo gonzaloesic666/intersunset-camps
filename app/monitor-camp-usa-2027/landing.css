@@ -330,3 +330,10 @@
    (trust strip y formulario superior quedan fuera: se ven enseguida) */
 .sem main > section:nth-of-type(n+3) { content-visibility: auto; contain-intrinsic-size: auto 700px; }
 .sem footer { content-visibility: auto; contain-intrinsic-size: auto 260px; }
+
+/* Menú de WhatsApp: varias opciones, cada una con su mensaje */
+.sem-wa { margin: 26px auto 0; max-width: 640px; }
+.sem-wa__title { color: rgba(255,255,255,.88); font-size: 15px; margin-bottom: 12px; }
+.sem-wa__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.sem-wa__grid .sem-btn { width: 100%; max-width: none; min-height: 56px; padding: 10px 12px; font-size: 13.5px; line-height: 1.25; }
+@media (max-width: 359px) { .sem-wa__grid { grid-template-columns: 1fr; } }

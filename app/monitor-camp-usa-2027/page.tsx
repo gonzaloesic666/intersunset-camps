@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { campaign as c, whatsappUrl } from '@/lib/campaign';
+import { campaign as c, whatsappUrl, whatsappOptions } from '@/lib/campaign';
 import LeadForm from '@/components/landing/LeadForm';
 import StickyCta from '@/components/landing/StickyCta';
 import LandingTracker from '@/components/landing/LandingTracker';
@@ -559,15 +559,24 @@ export default function SemLanding() {
               <CalendlyLink location="final" className="sem-btn sem-btn--wa">
                 RESERVAR LLAMADA GRATUITA
               </CalendlyLink>
-              <a
-                href={whatsappUrl()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="sem-btn sem-btn--wa"
-                data-location="final"
-              >
-                HABLAR POR WHATSAPP
-              </a>
+            </div>
+            <div className="sem-wa">
+              <p className="sem-wa__title">O escríbenos por WhatsApp: elige lo que quieres saber</p>
+              <div className="sem-wa__grid">
+                {whatsappOptions.map(o => (
+                  <a
+                    key={o.key}
+                    href={whatsappUrl(o.key)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="sem-btn sem-btn--wa"
+                    data-location="final"
+                    data-wa-option={o.key}
+                  >
+                    {o.label}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
         </section>

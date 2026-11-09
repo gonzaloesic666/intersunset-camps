@@ -45,8 +45,31 @@ export const campaign = {
   ],
 };
 
-export const whatsappUrl = () =>
-  `https://wa.me/${campaign.whatsappNumber}?text=${encodeURIComponent(campaign.whatsappMessage)}`;
+// Cada opción abre WhatsApp con un mensaje distinto, así sabes qué quiere saber la persona
+// y puedes contestar con la respuesta rápida adecuada.
+export const whatsappOptions = [
+  { key: 'requisitos', label: '¿Cumplo los requisitos?', message: campaign.whatsappMessage },
+  {
+    key: 'precio',
+    label: '¿Cuánto cuesta y qué incluye?',
+    message: `Hola, me gustaría saber cuánto cuesta Monitor Camp USA ${campaign.year} y qué incluye.`,
+  },
+  {
+    key: 'visado',
+    label: 'Dudas sobre el visado J-1',
+    message: `Hola, tengo dudas sobre el visado J-1 para Monitor Camp USA ${campaign.year}.`,
+  },
+  {
+    key: 'llamada',
+    label: 'Prefiero que me llaméis',
+    message: `Hola, me gustaría que me llaméis para que me expliquéis Monitor Camp USA ${campaign.year}.`,
+  },
+] as const;
+
+export const whatsappUrl = (optionKey?: string) => {
+  const message = whatsappOptions.find(o => o.key === optionKey)?.message ?? campaign.whatsappMessage;
+  return `https://wa.me/${campaign.whatsappNumber}?text=${encodeURIComponent(message)}`;
+};
 
 export const pageTitle = `Monitor Camp USA ${campaign.year} | Trabaja en un Campamento en EEUU`;
 export const pageDescription = `Trabaja este verano en un campamento americano. Salario mínimo de ${campaign.salary}, alojamiento y comida incluidos. Programa Monitor Camp USA ${campaign.year} desde ${campaign.priceTotal}.`;
