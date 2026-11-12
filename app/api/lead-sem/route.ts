@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
+import { leadWhatsAppLink } from '@/lib/lead-whatsapp';
 
 // Destinatario principal de los leads de la landing SEM.
 const LEAD_EMAIL = process.env.LEAD_SEM_EMAIL || 'gonzaloireland@gmail.com';
@@ -37,6 +38,8 @@ async function sendToCrm(body: Record<string, unknown>): Promise<boolean> {
     put('gbraid', body.gbraid);
     put('wbraid', body.wbraid);
     put('url_landing', body.landing_url);
+    // Enlace de un toque para escribirle por WhatsApp con el mensaje ya preparado
+    put('whatsapp_directo', leadWhatsAppLink(String(body.nombre ?? ''), String(body.telefono ?? '')));
     // Vincula la sesión de navegación (fuente, referrer, UTM, ciudad...) con el contacto
     put('isc_session_id', body.isc_session_id);
 
@@ -114,12 +117,23 @@ export async function POST(request: Request) {
     )
     .join('');
 
+  const waLink = leadWhatsAppLink(String(nombre), String(telefono));
+  const waBlock = waLink
+    ? `<p style="margin:0 0 18px;">
+        <a href="${waLink}" style="display:inline-block;background:#25D366;color:#0b2e13;font-weight:bold;padding:13px 20px;border-radius:8px;text-decoration:none;font-size:15px;">
+          Enviar WhatsApp a ${esc(String(nombre).trim().split(/\s+/)[0])}
+        </a><br>
+        <span style="color:#666;font-size:12px;">Se abre WhatsApp con el mensaje ya escrito. Solo tienes que pulsar enviar.</span>
+      </p>`
+    : `<p style="margin:0 0 18px;color:#b3261e;font-size:13px;">El teléfono (${esc(telefono)}) no tiene un formato válido para generar el enlace de WhatsApp: revísalo a mano.</p>`;
+
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
       <div style="background:#1E1D48;padding:24px;border-radius:8px 8px 0 0;">
         <h2 style="color:#fff;margin:0;">Nuevo lead SEM — Monitor Camp USA 2027</h2>
       </div>
       <div style="background:#f8f8f8;padding:24px;border-radius:0 0 8px 8px;">
+        ${waBlock}
         <table style="width:100%;border-collapse:collapse;">${rows}
           <tr><td style="padding:6px 0;color:#666;font-size:13px;">Fecha de entrada</td>
           <td style="padding:6px 0;color:#1E1D48;font-weight:bold;">${esc(fecha)}</td></tr>
