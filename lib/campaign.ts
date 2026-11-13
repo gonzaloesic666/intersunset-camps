@@ -23,6 +23,8 @@ export const campaign = {
   whatsappDisplay: '+34 641 900 180',
   whatsappMessage:
     'Hola, estoy interesado/a en Monitor Camp USA 2027 y me gustaría saber si cumplo los requisitos.',
+  // Quien firma el primer WhatsApp a los leads
+  senderName: 'Gonzalo',
   email: 'camp@intersunsetcampus.com',
   phone: '+34 919 61 84 40',
   phoneHref: 'tel:+34919618440',

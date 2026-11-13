@@ -26,7 +26,7 @@ function firstName(full: string): string {
 export function leadWhatsAppMessage(nombre: string): string {
   const name = firstName(nombre);
   return (
-    `Hola${name ? ' ' + name : ''}, soy del equipo de Intersunset Campus 🇺🇸 ` +
+    `Hola${name ? ' ' + name : ''}, soy ${campaign.senderName}, del equipo de Intersunset Campus 🇺🇸 ` +
     `Hemos recibido tu solicitud para Monitor Camp USA ${campaign.year} y te hemos enviado un email con la información. ` +
     `¿Nos confirmas si te ha llegado? Si prefieres, lo vemos en una llamada gratuita de 15 min: ${campaign.calendlyUrl}`
   );
