@@ -1,6 +1,8 @@
 import { NextResponse } from 'next/server';
 import { Resend } from 'resend';
 import { leadWhatsAppLink } from '@/lib/lead-whatsapp';
+import { campaign } from '@/lib/campaign';
+import { wt } from '@/lib/campaign-wt';
 
 // Destinatario principal de los leads de la landing SEM.
 const LEAD_EMAIL = process.env.LEAD_SEM_EMAIL || 'gonzaloireland@gmail.com';
@@ -8,9 +10,26 @@ const LEAD_EMAIL = process.env.LEAD_SEM_EMAIL || 'gonzaloireland@gmail.com';
 // CRM propio (crm-isc). El endpoint deduplica por email y guarda los campos que no reconoce
 // como nota de actividad. El nombre del programa debe coincidir con el catálogo del CRM.
 const CRM_LEADS_URL = process.env.CRM_LEADS_URL || 'https://crm-isc.vercel.app/api/leads';
-const CRM_PROGRAM = process.env.CRM_PROGRAM_NAME || 'Camp Monitor USA';
 
-async function sendToCrm(body: Record<string, unknown>): Promise<boolean> {
+// Una configuración por landing/programa. El formulario manda `programa: 'wt'` para Work and Travel;
+// sin ese campo se asume Monitor Camp USA (comportamiento original).
+const PROGRAMS = {
+  camps: {
+    label: 'Monitor Camp USA 2027',
+    crm: process.env.CRM_PROGRAM_NAME || 'Camp Monitor USA',
+    waProgram: `Monitor Camp USA ${campaign.year}`,
+    waCalendly: campaign.calendlyUrl,
+  },
+  wt: {
+    label: 'Work and Travel USA 2027',
+    crm: wt.crmProgram,
+    waProgram: wt.programName,
+    waCalendly: wt.calendlyUrl,
+  },
+} as const;
+type Program = (typeof PROGRAMS)[keyof typeof PROGRAMS];
+
+async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<boolean> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 6000);
   try {
@@ -19,16 +38,19 @@ async function sendToCrm(body: Record<string, unknown>): Promise<boolean> {
       const t = String(v ?? '').trim();
       if (t) clean[k] = t.slice(0, 500);
     };
-    put('form_name', `Landing SEM Monitor Camp USA 2027 (${body.formulario ?? 'formulario'})`);
+    put('form_name', `Landing SEM ${prog.label} (${body.formulario ?? 'formulario'})`);
     put('nombre', body.nombre);
     put('email', body.email);
     put('telefono', body.telefono);
-    put('programa', CRM_PROGRAM);
-    // Campos sin columna propia: el CRM los guarda como nota de la actividad
+    put('programa', prog.crm);
+    // Campos sin columna propia: el CRM los guarda como nota de actividad
     put('edad', body.edad);
     put('nivel_ingles', body.ingles);
     put('experiencia_con_ninos', body.experiencia);
     put('habilidad', body.habilidad);
+    put('matriculado_universidad', body.estudiante);
+    put('estudios', body.estudios);
+    put('opcion_interes', body.opcion);
     put('utm_source', body.utm_source);
     put('utm_medium', body.utm_medium);
     put('utm_campaign', body.utm_campaign);
@@ -39,7 +61,13 @@ async function sendToCrm(body: Record<string, unknown>): Promise<boolean> {
     put('wbraid', body.wbraid);
     put('url_landing', body.landing_url);
     // Enlace de un toque para escribirle por WhatsApp con el mensaje ya preparado
-    put('whatsapp_directo', leadWhatsAppLink(String(body.nombre ?? ''), String(body.telefono ?? '')));
+    put(
+      'whatsapp_directo',
+      leadWhatsAppLink(String(body.nombre ?? ''), String(body.telefono ?? ''), {
+        program: prog.waProgram,
+        calendly: prog.waCalendly,
+      })
+    );
     // Vincula la sesión de navegación (fuente, referrer, UTM, ciudad...) con el contacto
     put('isc_session_id', body.isc_session_id);
 
@@ -72,6 +100,9 @@ const FIELDS: [string, string][] = [
   ['telefono', 'WhatsApp / teléfono'],
   ['email', 'Email'],
   ['edad', 'Edad'],
+  ['estudiante', '¿Matriculado/a en la universidad?'],
+  ['estudios', 'Estudios'],
+  ['opcion', 'Opción de interés'],
   ['ingles', 'Nivel de inglés'],
   ['experiencia', 'Experiencia con niños'],
   ['habilidad', 'Habilidad / especialidad'],
@@ -107,6 +138,8 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: 'Email no válido' }, { status: 400 });
   }
 
+  const prog: Program = body.programa === 'wt' ? PROGRAMS.wt : PROGRAMS.camps;
+
   const fecha = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
   const rows = FIELDS.filter(([k]) => body[k])
     .map(
@@ -117,7 +150,10 @@ export async function POST(request: Request) {
     )
     .join('');
 
-  const waLink = leadWhatsAppLink(String(nombre), String(telefono));
+  const waLink = leadWhatsAppLink(String(nombre), String(telefono), {
+    program: prog.waProgram,
+    calendly: prog.waCalendly,
+  });
   const waBlock = waLink
     ? `<p style="margin:0 0 18px;">
         <a href="${waLink}" style="display:inline-block;background:#25D366;color:#0b2e13;font-weight:bold;padding:13px 20px;border-radius:8px;text-decoration:none;font-size:15px;">
@@ -130,7 +166,7 @@ export async function POST(request: Request) {
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
       <div style="background:#1E1D48;padding:24px;border-radius:8px 8px 0 0;">
-        <h2 style="color:#fff;margin:0;">Nuevo lead SEM — Monitor Camp USA 2027</h2>
+        <h2 style="color:#fff;margin:0;">Nuevo lead SEM — ${prog.label}</h2>
       </div>
       <div style="background:#f8f8f8;padding:24px;border-radius:0 0 8px 8px;">
         ${waBlock}
@@ -148,14 +184,14 @@ export async function POST(request: Request) {
       new Set([LEAD_EMAIL, process.env.CONTACT_EMAIL].filter(Boolean) as string[])
     );
     const [crmOk, ...emailResults] = await Promise.all([
-      sendToCrm(body),
+      sendToCrm(body, prog),
       ...recipients.map(async to => {
         try {
           const { error } = await resend.emails.send({
             from: process.env.RESEND_FROM || 'Intersunset Campus <onboarding@resend.dev>',
             to: [to],
             replyTo: String(email),
-            subject: `Lead SEM Monitor Camp USA 2027: ${esc(nombre)}`,
+            subject: `Lead SEM ${prog.label}: ${esc(nombre)}`,
             html,
           });
           if (error) console.error('Resend error para', to, error);

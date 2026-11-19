@@ -8,7 +8,8 @@ import { trackEvent, ADS_ID } from '@/lib/analytics';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-404PQHZ0WP';
 
 // La landing SEM (/monitor-camp-usa-2027) mide sus propios eventos.
-const isSemLanding = () => window.location.pathname.startsWith('/monitor-camp-usa-2027');
+const SEM_PATHS = ['/monitor-camp-usa-2027', '/work-and-travel-2027'];
+const isSemLanding = () => SEM_PATHS.some(p => window.location.pathname.startsWith(p));
 
 declare global {
   interface Window {

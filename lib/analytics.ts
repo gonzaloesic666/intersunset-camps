@@ -30,6 +30,9 @@ export function setUserData(data: { email?: string; phone_number?: string }) {
 export const ADS_ID = process.env.NEXT_PUBLIC_GADS_ID || 'AW-16510639099';
 const ADS_LEAD_LABEL = process.env.NEXT_PUBLIC_GADS_LEAD_LABEL || '6sIJCM2lzJMdEPu38cA9';
 
-export function trackAdsLeadConversion() {
-  trackEvent('conversion', { send_to: `${ADS_ID}/${ADS_LEAD_LABEL}` });
+// opts.label: etiqueta de otra conversión; null o '' = no enviar conversión de Ads.
+export function trackAdsLeadConversion(opts?: { label?: string | null }) {
+  const label = opts ? opts.label : ADS_LEAD_LABEL;
+  if (!label) return;
+  trackEvent('conversion', { send_to: `${ADS_ID}/${label}` });
 }

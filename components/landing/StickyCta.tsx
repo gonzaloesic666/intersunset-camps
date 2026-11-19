@@ -5,7 +5,7 @@ import { campaign } from '@/lib/campaign';
 
 // Barra CTA inferior (solo móvil). Se oculta cuando hay un formulario en pantalla
 // para no tapar los campos.
-export default function StickyCta() {
+export default function StickyCta({ label }: { label?: string }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -21,7 +21,7 @@ export default function StickyCta() {
 
   return (
     <div className={`sem-sticky${visible ? '' : ' sem-sticky--hidden'}`} aria-hidden={!visible}>
-      <span className="sem-sticky__label">Monitor Camp USA {campaign.year}</span>
+      <span className="sem-sticky__label">{label ?? `Monitor Camp USA ${campaign.year}`}</span>
       <a
         href="#formulario"
         className="sem-btn sem-btn--sm"

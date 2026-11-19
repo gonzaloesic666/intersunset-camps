@@ -10,13 +10,16 @@ export default function CalendlyLink({
   location,
   className = 'sem-link',
   children = 'Prefiero reservar una llamada gratuita',
+  url,
 }: {
   location: string;
   className?: string;
   children?: React.ReactNode;
+  url?: string;
 }) {
-  const [href, setHref] = useState(campaign.calendlyUrl);
-  useEffect(() => setHref(withAttribution(campaign.calendlyUrl)), []);
+  const base = url ?? campaign.calendlyUrl;
+  const [href, setHref] = useState(base);
+  useEffect(() => setHref(withAttribution(base)), [base]);
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className={className} data-location={location}>
       {children}

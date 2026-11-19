@@ -1,0 +1,35 @@
+/* Work and Travel · ajustes sobre landing.css */
+
+/* Hero sin foto por defecto: degradado de marca (si existe public/wt/hero-*.webp, el layout lo añade) */
+.sem-hero__bg {
+  background:
+    radial-gradient(900px 420px at 88% -10%, rgba(227, 130, 49, 0.3), transparent 60%),
+    linear-gradient(135deg, #1e1d48 0%, #2b2a63 55%, #141330 100%);
+}
+@media (min-width: 900px) {
+  .sem-hero__bg {
+    background-image:
+      radial-gradient(900px 420px at 88% -10%, rgba(227, 130, 49, 0.3), transparent 60%),
+      linear-gradient(135deg, #1e1d48 0%, #2b2a63 55%, #141330 100%);
+    background-position: 0 0;
+  }
+}
+
+/* Puestos de ejemplo */
+.wt-job small { display: block; color: var(--muted); font-size: 12.5px; margin-top: 6px; }
+.wt-job .wt-pay { color: var(--navy); font-weight: 800; font-size: 17px; margin-top: 8px; }
+.wt-job h3 { margin-bottom: 2px; }
+.wt-job .wt-place { color: var(--muted); font-size: 13.5px; }
+.wt-job .wt-company { font-size: 13.5px; color: var(--ink); font-weight: 600; }
+
+/* Testimonios sin foto: inicial en círculo */
+.wt-avatar {
+  width: 44px; height: 44px; border-radius: 50%; background: var(--navy); color: #fff;
+  display: grid; place-items: center; font-family: var(--font-montserrat), sans-serif; font-weight: 800; flex-shrink: 0;
+}
+
+/* Fechas clave */
+.wt-dates { display: grid; gap: 8px; margin-top: 20px; }
+.wt-dates li { background: #fff; border: 1px solid var(--line); border-left: 4px solid var(--orange); border-radius: 10px; padding: 10px 14px; font-size: 14.5px; }
+.wt-dates b { color: var(--navy); }
+.wt-fine { font-size: 12.5px; color: var(--muted); margin-top: 12px; }

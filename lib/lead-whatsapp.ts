@@ -23,17 +23,21 @@ function firstName(full: string): string {
   return first.charAt(0).toUpperCase() + first.slice(1);
 }
 
-export function leadWhatsAppMessage(nombre: string): string {
+export type LeadWaOpts = { program?: string; calendly?: string };
+
+export function leadWhatsAppMessage(nombre: string, opts?: LeadWaOpts): string {
   const name = firstName(nombre);
+  const program = opts?.program ?? `Monitor Camp USA ${campaign.year}`;
+  const calendly = opts?.calendly ?? campaign.calendlyUrl;
   return (
     `Hola${name ? ' ' + name : ''}, soy ${campaign.senderName}, del equipo de Intersunset Campus 🇺🇸 ` +
-    `Hemos recibido tu solicitud para Monitor Camp USA ${campaign.year} y te hemos enviado un email con la información. ` +
-    `¿Nos confirmas si te ha llegado? Si prefieres, lo vemos en una llamada gratuita de 15 min: ${campaign.calendlyUrl}`
+    `Hemos recibido tu solicitud para ${program} y te hemos enviado un email con la información. ` +
+    `¿Nos confirmas si te ha llegado? Si prefieres, lo vemos en una llamada gratuita de 15 min: ${calendly}`
   );
 }
 
-export function leadWhatsAppLink(nombre: string, telefono: string): string | null {
+export function leadWhatsAppLink(nombre: string, telefono: string, opts?: LeadWaOpts): string | null {
   const phone = normalizePhone(telefono);
   if (!phone) return null;
-  return `https://wa.me/${phone}?text=${encodeURIComponent(leadWhatsAppMessage(nombre))}`;
+  return `https://wa.me/${phone}?text=${encodeURIComponent(leadWhatsAppMessage(nombre, opts))}`;
 }

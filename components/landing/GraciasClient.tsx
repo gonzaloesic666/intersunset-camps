@@ -7,11 +7,18 @@ import { trackEvent, setUserData, trackAdsLeadConversion } from '@/lib/analytics
 
 // Dispara la conversión "lead" (una sola vez) y construye el enlace de
 // Calendly conservando las UTM.
-export default function GraciasClient() {
-  const [calendly, setCalendly] = useState(campaign.calendlyUrl);
+type Props = {
+  calendlyUrl?: string;
+  leadSource?: string;
+  // undefined = conversión de Camps; null/'' = sin conversión de Ads; texto = esa etiqueta
+  adsLabel?: string | null;
+};
+
+export default function GraciasClient({ calendlyUrl = campaign.calendlyUrl, leadSource = 'landing_sem', adsLabel }: Props) {
+  const [calendly, setCalendly] = useState(calendlyUrl);
 
   useEffect(() => {
-    setCalendly(withAttribution(campaign.calendlyUrl));
+    setCalendly(withAttribution(calendlyUrl));
     try {
       const raw = sessionStorage.getItem('sem_lead_pending');
       if (!raw) return;
@@ -22,8 +29,8 @@ export default function GraciasClient() {
         email,
         phone_number: digits ? (digits.startsWith('+') ? digits : `+34${digits}`) : undefined,
       });
-      trackEvent('lead', { form_source: 'landing_sem' });
-      trackAdsLeadConversion();
+      trackEvent('lead', { form_source: leadSource });
+      trackAdsLeadConversion(adsLabel === undefined ? undefined : { label: adsLabel });
     } catch {}
   }, []);
 
