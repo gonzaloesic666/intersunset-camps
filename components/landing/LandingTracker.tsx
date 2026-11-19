@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { trackEvent } from '@/lib/analytics';
 import { captureAttribution } from '@/lib/attribution';
 import { trackCrmVisit } from '@/lib/crm-tracking';
+import { openCalendlyPopup, listenCalendlyBookings, loadCalendly } from '@/lib/calendly-popup';
 
 // Tracking de la landing SEM: landing_view, cta_click, form_start,
 // whatsapp_click y calendar_click (delegados, sin tocar cada botón).
@@ -29,7 +30,16 @@ export default function LandingTracker() {
       if (href.includes('wa.me')) {
         trackEvent('whatsapp_click', { location, option: a.getAttribute('data-wa-option') || 'requisitos' });
       }
-      else if (href.includes('calendly.com')) trackEvent('calendar_click', { location });
+      else if (href.includes('calendly.com')) {
+        trackEvent('calendar_click', { location });
+        // Ventana emergente en lugar de ir a la página de Calendly (si no se puede, navega como siempre)
+        if (e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey) {
+          e.preventDefault();
+          openCalendlyPopup(href).then(ok => {
+            if (!ok) window.location.assign(href);
+          });
+        }
+      }
     };
 
     const started = new Set<string>();
@@ -42,6 +52,14 @@ export default function LandingTracker() {
       }
     };
 
+    // Calendly: medir reservas desde la ventana emergente y precargar sus recursos en la primera interacción
+    listenCalendlyBookings();
+    const preload = () => {
+      loadCalendly().catch(() => {});
+    };
+    const preloadEvents = ['pointerdown', 'touchstart', 'scroll', 'keydown'];
+    preloadEvents.forEach(ev => window.addEventListener(ev, preload, { once: true, passive: true }));
+
     // Visita hacia el CRM: ya aceptó cookies, o lo hace durante la visita
     trackCrmVisit();
     window.addEventListener('cookie-consent-accepted', trackCrmVisit);
@@ -52,6 +70,7 @@ export default function LandingTracker() {
       document.removeEventListener('click', onClick);
       document.removeEventListener('focusin', onFocus);
       window.removeEventListener('cookie-consent-accepted', trackCrmVisit);
+      preloadEvents.forEach(ev => window.removeEventListener(ev, preload));
     };
   }, []);
 
