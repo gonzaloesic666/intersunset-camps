@@ -95,7 +95,7 @@ export default function LeadFormWT({ id, variant = 'short' }: Props) {
       </div>
 
       <fieldset className="sem-field sem-radio">
-        <legend>¿Estás matriculado/a en la universidad?</legend>
+        <legend>¿Estás matriculado/a en la universidad o en un grado superior?</legend>
         <label>
           <input type="radio" name="estudiante" value="Sí" required /> Sí
         </label>

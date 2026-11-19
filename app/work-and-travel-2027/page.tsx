@@ -53,10 +53,10 @@ const notIncluded = [
 ];
 
 const requirements = [
-  { t: 'Edad y estudios', d: `Tener entre ${w.ageMin} y ${w.ageMax} años, ser español o residente legal en España y estar matriculado en la universidad, con estudios a tiempo completo y presenciales.` },
+  { t: 'Edad y estudios', d: `Tener entre ${w.ageMin} y ${w.ageMax} años, ser español o residente legal en España y estar matriculado en la universidad o ser estudiante de grado superior, con estudios a tiempo completo y en modalidad presencial.` },
   { t: 'Inglés', d: `Nivel mínimo ${w.englishLevel} (intermedio), que se evalúa en una entrevista corta. No necesitas certificado oficial ni un inglés perfecto.` },
   { t: 'Disponibilidad', d: 'Mínimo 10 semanas durante el verano, entre mayo y octubre de 2027.' },
-  { t: 'Documentos', d: 'Pasaporte con al menos 6 meses de validez, DNI y matrícula universitaria, y foto tipo visado de EE. UU. El DS-160 te lo guiamos paso a paso.' },
+  { t: 'Documentos', d: 'Pasaporte con al menos 6 meses de validez, DNI y justificante de matrícula (universidad o grado superior), y foto tipo visado de EE. UU. El DS-160 te lo guiamos paso a paso.' },
   { t: 'Experiencia', d: 'No necesitas experiencia laboral previa: solo actitud positiva y ganas de vivir la experiencia.' },
   { t: 'Una oferta de trabajo', d: 'La consigues con nosotros (Standard o Premium) o aportas la tuya con la opción Oferta propia.' },
 ];
@@ -149,7 +149,7 @@ export default function WtLanding() {
                   </CalendlyLink>
                 </p>
               </div>
-              <p className="sem-meta">{w.ageRange} años · Estudiantes universitarios · {w.season}</p>
+              <p className="sem-meta">{w.ageRange} años · Estudiantes universitarios y de grado superior · {w.season}</p>
             </div>
           </div>
         </header>
@@ -193,7 +193,7 @@ export default function WtLanding() {
                 <h2 className="sem-h2">Trabaja y viaja por Estados Unidos este verano</h2>
                 <p className="sem-lead">
                   Work and Travel es un programa de intercambio cultural, regulado por el Departamento de Estado
-                  de EE. UU., que permite a estudiantes universitarios españoles trabajar legalmente en Estados
+                  de EE. UU., que permite a estudiantes universitarios y de grado superior españoles trabajar legalmente en Estados
                   Unidos durante el verano con visado J-1.
                 </p>
               </div>
@@ -529,7 +529,7 @@ export default function WtLanding() {
         </section>
       </main>
 
-      <LandingFooter />
+      <LandingFooter email={w.email} />
       <StickyCta label={`Work and Travel USA ${w.year}`} />
     </>
   );

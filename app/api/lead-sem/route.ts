@@ -48,7 +48,7 @@ async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<
     put('nivel_ingles', body.ingles);
     put('experiencia_con_ninos', body.experiencia);
     put('habilidad', body.habilidad);
-    put('matriculado_universidad', body.estudiante);
+    put('matriculado_universidad_o_grado_superior', body.estudiante);
     put('estudios', body.estudios);
     put('opcion_interes', body.opcion);
     put('utm_source', body.utm_source);
@@ -100,7 +100,7 @@ const FIELDS: [string, string][] = [
   ['telefono', 'WhatsApp / teléfono'],
   ['email', 'Email'],
   ['edad', 'Edad'],
-  ['estudiante', '¿Matriculado/a en la universidad?'],
+  ['estudiante', '¿Matriculado/a (universidad o grado superior)?'],
   ['estudios', 'Estudios'],
   ['opcion', 'Opción de interés'],
   ['ingles', 'Nivel de inglés'],

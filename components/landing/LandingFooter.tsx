@@ -1,6 +1,7 @@
 import { campaign } from '@/lib/campaign';
 
-export default function LandingFooter() {
+export default function LandingFooter({ email }: { email?: string }) {
+  const mail = email ?? campaign.email;
   return (
     <footer className="sem-footer">
       <div className="sem-wrap">
@@ -8,7 +9,7 @@ export default function LandingFooter() {
         <div style={{ marginTop: 4 }}>{campaign.address}</div>
         <div className="sem-footer__row">
           <span>
-            Email: <a href={`mailto:${campaign.email}`}>{campaign.email}</a>
+            Email: <a href={`mailto:${mail}`}>{mail}</a>
           </span>
           <span>
             Teléfono: <a href={campaign.phoneHref}>{campaign.phone}</a>

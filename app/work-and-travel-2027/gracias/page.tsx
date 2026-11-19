@@ -38,7 +38,7 @@ export default function WtGracias() {
           </a>
         </div>
       </main>
-      <LandingFooter />
+      <LandingFooter email={wt.email} />
     </>
   );
 }
