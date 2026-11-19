@@ -66,7 +66,8 @@ export default function LeadFormWT({ id, variant = 'short' }: Props) {
           JSON.stringify({ email: payload.email, phone: payload.telefono })
         );
       } catch {}
-      router.push(`${wt.basePath}/gracias`);
+      // En workandtravel.intersunsetcampus.com la URL se mantiene limpia (/gracias)
+      router.push(window.location.hostname.startsWith('workandtravel.') ? '/gracias' : `${wt.basePath}/gracias`);
     } catch {
       setStatus('error');
     }

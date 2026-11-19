@@ -8,6 +8,14 @@ import CalendlyLink from '@/components/landing/CalendlyLink';
 import UsFlag from '@/components/landing/UsFlag';
 
 const CTA_TEXT = 'COMPROBAR SI CUMPLES LOS REQUISITOS';
+
+function Ph({ src, alt, ratio = '4 / 3', sizes = '(min-width: 900px) 33vw, 100vw' }: { src: string; alt: string; ratio?: string; sizes?: string }) {
+  return (
+    <div className="sem-ph" style={{ aspectRatio: ratio }}>
+      <Image src={`/wt/${src}.webp`} alt={alt} fill sizes={sizes} quality={70} loading="lazy" />
+    </div>
+  );
+}
 const durShort = w.duration.replace(' a ', '–');
 
 function Cta({ where }: { where: string }) {
@@ -179,13 +187,18 @@ export default function WtLanding() {
         {/* 4 · QUÉ ES */}
         <section>
           <div className="sem-wrap">
-            <span className="sem-eyebrow">El programa</span>
-            <h2 className="sem-h2">Trabaja y viaja por Estados Unidos este verano</h2>
-            <p className="sem-lead">
-              Work and Travel es un programa de intercambio cultural, regulado por el Departamento de Estado de
-              EE. UU., que permite a estudiantes universitarios españoles trabajar legalmente en Estados Unidos
-              durante el verano con visado J-1.
-            </p>
+            <div className="sem-split sem-split--center">
+              <div>
+                <span className="sem-eyebrow">El programa</span>
+                <h2 className="sem-h2">Trabaja y viaja por Estados Unidos este verano</h2>
+                <p className="sem-lead">
+                  Work and Travel es un programa de intercambio cultural, regulado por el Departamento de Estado
+                  de EE. UU., que permite a estudiantes universitarios españoles trabajar legalmente en Estados
+                  Unidos durante el verano con visado J-1.
+                </p>
+              </div>
+              <Ph src="equipo-parque" alt="Equipo de jóvenes trabajando en un parque temático de Estados Unidos" ratio="16 / 10" sizes="(min-width: 900px) 50vw, 100vw" />
+            </div>
             <div className="sem-grid sem-grid--3">
               <div className="sem-card">
                 <h3>Tu trabajo</h3>
@@ -214,6 +227,20 @@ export default function WtLanding() {
                   <p>{b.d}</p>
                 </div>
               ))}
+            </div>
+            <div className="sem-trio">
+              <figure>
+                <Ph src="playa" alt="Jóvenes compartiendo pizza en la playa al atardecer" ratio="1 / 1" sizes="33vw" />
+                <figcaption>Amigos de todo el mundo</figcaption>
+              </figure>
+              <figure>
+                <Ph src="sixflags" alt="Cartel de Six Flags New England con un grupo de jóvenes" ratio="1 / 1" sizes="33vw" />
+                <figcaption>Destinos como Six Flags</figcaption>
+              </figure>
+              <figure>
+                <Ph src="boston" alt="Tres amigas en un partido de los Boston Red Sox" ratio="1 / 1" sizes="33vw" />
+                <figcaption>Días libres para viajar</figcaption>
+              </figure>
             </div>
           </div>
         </section>
@@ -287,11 +314,16 @@ export default function WtLanding() {
         {/* 8 · PUESTOS */}
         <section className="sem-soft">
           <div className="sem-wrap">
-            <h2 className="sem-h2">Ejemplos de puestos para {w.year}</h2>
-            <p className="sem-lead">
-              Así son algunos de los puestos publicados. La disponibilidad cambia: en la llamada te decimos qué
-              hay abierto según tu perfil.
-            </p>
+            <div className="sem-split sem-split--center">
+              <div>
+                <h2 className="sem-h2">Ejemplos de puestos para {w.year}</h2>
+                <p className="sem-lead">
+                  Así son algunos de los puestos publicados. La disponibilidad cambia: en la llamada te decimos
+                  qué hay abierto según tu perfil.
+                </p>
+              </div>
+              <Ph src="socorrista" alt="Socorrista junto a una piscina en Estados Unidos" ratio="16 / 10" sizes="(min-width: 900px) 50vw, 100vw" />
+            </div>
             <div className="sem-grid sem-grid--3">
               {w.jobs.map(j => (
                 <div className="sem-card wt-job" key={j.company + j.role}>

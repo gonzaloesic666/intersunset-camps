@@ -9,7 +9,9 @@ const GA_ID = process.env.NEXT_PUBLIC_GA_ID || 'G-404PQHZ0WP';
 
 // La landing SEM (/monitor-camp-usa-2027) mide sus propios eventos.
 const SEM_PATHS = ['/monitor-camp-usa-2027', '/work-and-travel-2027'];
-const isSemLanding = () => SEM_PATHS.some(p => window.location.pathname.startsWith(p));
+const isSemLanding = () =>
+  SEM_PATHS.some(p => window.location.pathname.startsWith(p)) ||
+  window.location.hostname.startsWith('workandtravel.');
 
 declare global {
   interface Window {
@@ -153,7 +155,7 @@ export default function Analytics() {
 
   // Conversión principal: formulario enviado -> /gracias
   useEffect(() => {
-    if (pathname === '/gracias') trackEvent('generate_lead', { method: 'formulario' });
+    if (pathname === '/gracias' && !isSemLanding()) trackEvent('generate_lead', { method: 'formulario' });
   }, [pathname]);
 
   return (
