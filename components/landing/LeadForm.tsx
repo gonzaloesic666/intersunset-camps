@@ -6,6 +6,7 @@ import { campaign } from '@/lib/campaign';
 import { getAttribution } from '@/lib/attribution';
 import { trackEvent } from '@/lib/analytics';
 import { getCrmSessionId } from '@/lib/crm-tracking';
+import HiddenTrackingFields from '@/components/landing/HiddenTrackingFields';
 
 type Props = { id: string; variant?: 'short' | 'full' };
 
@@ -41,7 +42,9 @@ export default function LeadForm({ id, variant = 'short' }: Props) {
       website: String(fd.get('website') || ''),
       privacidad: true,
       formulario: id,
-      isc_session_id: getCrmSessionId() || '',
+      // Se lee justo ahora: la cookie de sesión puede haberse creado después de cargar la página
+      isc_session_id: getCrmSessionId() || String(fd.get('isc_session_id') || ''),
+      gad_campaignid: String(fd.get('gad_campaignid') || ''),
       ...getAttribution(),
       landing_url: window.location.origin + window.location.pathname,
     };
@@ -122,6 +125,8 @@ export default function LeadForm({ id, variant = 'short' }: Props) {
           </div>
         </>
       )}
+
+      <HiddenTrackingFields />
 
       {/* Honeypot anti-spam */}
       <div aria-hidden="true" style={{ position: 'absolute', left: '-9999px' }}>

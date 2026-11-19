@@ -59,6 +59,8 @@ async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<
     put('gclid', body.gclid);
     put('gbraid', body.gbraid);
     put('wbraid', body.wbraid);
+    put('gad_campaignid', body.gad_campaignid);
+    put('gad_source', body.gad_source);
     put('url_landing', body.landing_url);
     // Enlace de un toque para escribirle por WhatsApp con el mensaje ya preparado
     put(
@@ -114,6 +116,8 @@ const FIELDS: [string, string][] = [
   ['gclid', 'gclid'],
   ['gbraid', 'gbraid'],
   ['wbraid', 'wbraid'],
+  ['gad_campaignid', 'gad_campaignid'],
+  ['gad_source', 'gad_source'],
   ['landing_url', 'URL de landing'],
   ['formulario', 'Formulario'],
   ['isc_session_id', 'Sesión CRM'],

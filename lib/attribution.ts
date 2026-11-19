@@ -8,6 +8,8 @@ export const ATTRIBUTION_KEYS = [
   'gclid',
   'gbraid',
   'wbraid',
+  'gad_campaignid',
+  'gad_source',
 ] as const;
 
 export type Attribution = Partial<Record<(typeof ATTRIBUTION_KEYS)[number], string>> & {
