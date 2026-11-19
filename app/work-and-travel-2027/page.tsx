@@ -330,10 +330,21 @@ export default function WtLanding() {
                   <h3>{j.role}</h3>
                   <p className="wt-company">{j.company}</p>
                   <p className="wt-place">{j.place}</p>
-                  <p className="wt-pay">{j.pay}</p>
+                  {j.pay && <p className="wt-pay">{j.pay}</p>}
                   <small>{j.extra}</small>
                 </div>
               ))}
+              <div className="sem-card wt-job wt-job--more">
+                <h3>Y muchos más</h3>
+                <p className="wt-place">
+                  Parques nacionales, parques temáticos, resorts de playa y zonas de montaña, según tu perfil.
+                </p>
+                <p style={{ marginTop: 12 }}>
+                  <a href="#formulario" className="sem-link" data-cta="jobs">
+                    Ver qué puestos encajan conmigo
+                  </a>
+                </p>
+              </div>
             </div>
           </div>
         </section>

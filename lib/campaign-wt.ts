@@ -70,12 +70,11 @@ export const wt = {
   ],
   // Ejemplos de puestos (cambian con la disponibilidad: actualiza esta lista)
   jobs: [
-    { company: "Dirty Dick's Crab House", role: 'Kitchen Crew', place: 'Nags Head, Carolina del Norte', pay: '12,00 $/h', extra: 'Alojamiento: lo gestiona la empresa' },
-    { company: "Bubba's Seafood Restaurant & Shellfish Co.", role: 'Kitchen Help', place: 'Virginia Beach, Virginia', pay: '15,00 $/h', extra: 'Alojamiento: lo gestiona la empresa' },
-    { company: 'Premier Pool Management, Inc.', role: 'Lifeguard', place: 'Rockville, Maryland', pay: '16,50 $/h', extra: 'Requisito: natación avanzada' },
-    { company: 'Grand Casino Mille Lacs Hotel', role: 'Line Cook', place: 'Onamia, Minnesota', pay: '16,00 $/h', extra: 'Alojamiento: lo gestiona la empresa' },
+    { company: 'Denali Grizzly Bear Resort', role: 'Front Desk Receptionist', place: 'Parque Nacional de Denali, Alaska', pay: '', extra: 'Alojamiento: lo gestiona la empresa' },
+    { company: 'Premier Pool Management, Inc.', role: 'Lifeguard (socorrista)', place: 'Rockville, Maryland', pay: '16,50 $/h', extra: 'Requisito: natación avanzada' },
     { company: 'Fountainhead (Wedgewood Resort)', role: 'Host', place: 'Fairbanks, Alaska', pay: '14,50 $/h', extra: 'Alojamiento: lo gestiona la empresa' },
-    { company: "Old Abe's Old Time Portraits", role: 'Team Member', place: 'Wisconsin Dells, Wisconsin', pay: '13,00 $/h + propinas', extra: 'Alojamiento: lo gestiona la empresa' },
+    { company: "Old Abe's Old Time Portraits", role: 'Team Member (fotografía de época)', place: 'Wisconsin Dells, Wisconsin', pay: '13,00 $/h + propinas', extra: 'Alojamiento: lo gestiona la empresa' },
+    { company: 'Hollywood Pictures LLC', role: 'Sales Help (fotografía turística)', place: 'Myrtle Beach, Carolina del Sur', pay: '12,00 $/h + propinas', extra: 'Entrada en mayo o junio · Alojamiento no incluido' },
   ],
 };
 
