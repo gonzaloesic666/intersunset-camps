@@ -34,7 +34,7 @@ const hasHero =
   fs.existsSync(path.join(process.cwd(), 'public/wt/hero-d.webp'));
 
 const heroCss = hasHero
-  ? '.sem-hero__bg{background:#141330 url(/wt/hero-m.webp) 60% 30%/cover no-repeat}@media(min-width:900px){.sem-hero__bg{background-image:url(/wt/hero-d.webp);background-position:center 30%}}'
+  ? '.sem-hero__bg{background:#141330 url(/wt/hero-m.webp) 60% 30%/cover no-repeat}@media(min-width:900px){.sem-hero__bg{background-image:url(/wt/hero-d.webp);background-position:right center;background-size:cover}.sem-hero__bg::after{background:linear-gradient(90deg,rgba(20,19,48,.12) 0%,rgba(20,19,48,0) 55%)}}'
   : '';
 
 // CSS en línea (se lee en build): evita una petición bloqueante.
