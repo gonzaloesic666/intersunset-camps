@@ -22,8 +22,8 @@ export const wt = {
   // Calendly: evento propio de Work and Travel
   email: 'contacto@intersunsetcampus.com',
   calendlyUrl: process.env.NEXT_PUBLIC_WT_CALENDLY_URL || 'https://calendly.com/intersunsetcampus/intersunset-campus-workandtravel',
-  // Etiqueta de la conversión de Google Ads de este programa (vacía = no se envía conversión de Ads)
-  adsLeadLabel: process.env.NEXT_PUBLIC_GADS_WT_LEAD_LABEL || null,
+  // Etiqueta de la conversión de Google Ads "Lead Work and Travel USA 2027 (landing)" (AW-16510639099/…)
+  adsLeadLabel: process.env.NEXT_PUBLIC_GADS_WT_LEAD_LABEL || 'ti-0CMmj3bsdEPu38cA9',
   whatsappMessage:
     'Hola, estoy interesado/a en Work and Travel USA 2027 y me gustaría saber si cumplo los requisitos.',
   // Listado de agencias de Summer Work Travel de la Embajada de EEUU en España
