@@ -3,6 +3,7 @@ import path from 'node:path';
 import type { Metadata } from 'next';
 import { Open_Sans } from 'next/font/google';
 import { pageTitle, pageDescription } from '@/lib/campaign';
+import { FAIR_DEADLINE_MS } from '@/lib/fair';
 
 const openSans = Open_Sans({
   subsets: ['latin'],
@@ -38,6 +39,12 @@ export default function SemLayout({ children }: { children: React.ReactNode }) {
   return (
     <div className={`sem ${openSans.variable}`}>
       <style dangerouslySetInnerHTML={{ __html: css }} />
+      {/* Feria online: se oculta sola al pasar el plazo de inscripción */}
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `if(Date.now()>=${FAIR_DEADLINE_MS})document.documentElement.classList.add('fair-closed')`,
+        }}
+      />
       <link rel="preload" as="image" href="/landing/hero-m.webp" media="(max-width: 899px)" fetchPriority="high" />
       <link rel="preload" as="image" href="/landing/hero-d.webp" media="(min-width: 900px)" fetchPriority="high" />
       {children}

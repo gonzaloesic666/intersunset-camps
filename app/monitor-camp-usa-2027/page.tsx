@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { campaign as c, whatsappUrl, whatsappOptions } from '@/lib/campaign';
 import LeadForm from '@/components/landing/LeadForm';
+import FairForm from '@/components/landing/FairForm';
+import { fair } from '@/lib/fair';
 import StickyCta from '@/components/landing/StickyCta';
 import LandingTracker from '@/components/landing/LandingTracker';
 import LandingFooter from '@/components/landing/LandingFooter';
@@ -123,6 +125,15 @@ export default function SemLanding() {
     <>
       <LandingTracker />
       <main>
+        {/* AVISO FERIA ONLINE (temporal: desaparece solo al cerrar la inscripción) */}
+        <a href="#feria" className="fair-bar fair-only" data-cta="fair_bar">
+          <span className="fair-bar__tag">NUEVO</span>
+          <span>
+            <strong>{fair.name} · {fair.dateShort}</strong> · Inscripción hasta el {fair.deadlineShort}
+          </span>
+          <span aria-hidden="true">→</span>
+        </a>
+
         {/* 1 · HERO */}
         <header className="sem-hero">
           <div className="sem-hero__bg" aria-hidden="true" />
@@ -191,6 +202,30 @@ export default function SemLanding() {
             </div>
             <div className="sem-formcard">
               <LeadForm id="formulario" variant="short" />
+            </div>
+          </div>
+        </section>
+
+        {/* FERIA ONLINE (temporal) */}
+        <section id="feria" className="fair-section fair-only" aria-labelledby="feria-titulo">
+          <div className="sem-wrap sem-early">
+            <div style={{ marginBottom: 24 }}>
+              <span className="sem-eyebrow">Evento online · {fair.dateShort}</span>
+              <h2 className="sem-h2" id="feria-titulo">{fair.name}</h2>
+              <p className="sem-lead">
+                Nuestro sponsor organiza una feria online con campamentos de Estados Unidos que buscan monitores
+                para el verano {c.year}. Participas desde casa.
+              </p>
+              <ul className="sem-ticks fair-ticks">
+                <li>Fecha: {fair.dateLong}{fair.timeLabel ? `, ${fair.timeLabel}` : ''}</li>
+                <li>Reserva tu plaza con {fair.fee}</li>
+                <li>{fair.refundText}</li>
+                <li>Inscripción abierta hasta el {fair.deadlineLong}</li>
+              </ul>
+              <p className="sem-small">Antes de pagar recibirás todas las condiciones por escrito.</p>
+            </div>
+            <div className="sem-formcard">
+              <FairForm />
             </div>
           </div>
         </section>

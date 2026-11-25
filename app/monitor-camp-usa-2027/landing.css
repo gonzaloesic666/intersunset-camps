@@ -337,3 +337,19 @@
 .sem-wa__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 .sem-wa__grid .sem-btn { width: 100%; max-width: none; min-height: 56px; padding: 10px 12px; font-size: 13.5px; line-height: 1.25; }
 @media (max-width: 359px) { .sem-wa__grid { grid-template-columns: 1fr; } }
+
+/* Feria online (temporal) */
+.fair-closed .fair-only { display: none !important; }
+.fair-bar {
+  display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap;
+  background: var(--orange); color: var(--navy); font-size: 13.5px; font-weight: 600; line-height: 1.3;
+  padding: 9px 14px; text-align: center; text-decoration: none; min-height: 44px;
+}
+.fair-bar strong { font-weight: 800; }
+.fair-bar:hover { background: #f09a4a; }
+.fair-bar__tag { background: var(--navy); color: #fff; font-size: 11px; font-weight: 800; letter-spacing: 1px; padding: 3px 8px; border-radius: 100px; }
+.fair-section { background: #fff7ef; border-top: 4px solid var(--orange); border-bottom: 4px solid var(--orange); }
+.fair-ticks { margin-top: 16px; }
+.fair-next { margin: 18px 0 22px; padding-left: 20px; color: rgba(255,255,255,.9); }
+.fair-next li { margin-bottom: 10px; font-size: 16px; }
+.fair-thanks-actions { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; max-width: 440px; }

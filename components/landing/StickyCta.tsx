@@ -9,7 +9,7 @@ export default function StickyCta({ label }: { label?: string }) {
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
-    const targets = document.querySelectorAll('#formulario, #formulario-final');
+    const targets = document.querySelectorAll('#formulario, #formulario-final, #feria');
     const inView = new Set<Element>();
     const obs = new IntersectionObserver(entries => {
       entries.forEach(en => (en.isIntersecting ? inView.add(en.target) : inView.delete(en.target)));

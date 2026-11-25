@@ -3,6 +3,7 @@ import { Resend } from 'resend';
 import { leadWhatsAppLink } from '@/lib/lead-whatsapp';
 import { campaign } from '@/lib/campaign';
 import { wt } from '@/lib/campaign-wt';
+import { fair, isFairOpen } from '@/lib/fair';
 
 // Destinatario principal de los leads de la landing SEM.
 const LEAD_EMAIL = process.env.LEAD_SEM_EMAIL || 'gonzaloireland@gmail.com';
@@ -29,7 +30,11 @@ const PROGRAMS = {
 } as const;
 type Program = (typeof PROGRAMS)[keyof typeof PROGRAMS];
 
-async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<boolean> {
+async function sendToCrm(
+  body: Record<string, unknown>,
+  prog: Program,
+  o: { formName: string; waProgram: string }
+): Promise<boolean> {
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 6000);
   try {
@@ -38,8 +43,9 @@ async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<
       const t = String(v ?? '').trim();
       if (t) clean[k] = t.slice(0, 500);
     };
-    put('form_name', `Landing SEM ${prog.label} (${body.formulario ?? 'formulario'})`);
+    put('form_name', o.formName);
     put('nombre', body.nombre);
+    put('apellidos', body.apellidos);
     put('email', body.email);
     put('telefono', body.telefono);
     put('programa', prog.crm);
@@ -51,6 +57,9 @@ async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<
     put('matriculado_universidad_o_grado_superior', body.estudiante);
     put('estudios', body.estudios);
     put('opcion_interes', body.opcion);
+    put('evento', body.tipo === 'feria' ? fair.crmFormName : '');
+    put('ya_participante', body.ya_participante);
+    put('acepta_condiciones_feria', body.condiciones_feria);
     put('utm_source', body.utm_source);
     put('utm_medium', body.utm_medium);
     put('utm_campaign', body.utm_campaign);
@@ -66,7 +75,7 @@ async function sendToCrm(body: Record<string, unknown>, prog: Program): Promise<
     put(
       'whatsapp_directo',
       leadWhatsAppLink(String(body.nombre ?? ''), String(body.telefono ?? ''), {
-        program: prog.waProgram,
+        program: o.waProgram,
         calendly: prog.waCalendly,
       })
     );
@@ -99,6 +108,7 @@ const esc = (v: unknown) =>
 
 const FIELDS: [string, string][] = [
   ['nombre', 'Nombre'],
+  ['apellidos', 'Apellidos'],
   ['telefono', 'WhatsApp / teléfono'],
   ['email', 'Email'],
   ['edad', 'Edad'],
@@ -121,6 +131,8 @@ const FIELDS: [string, string][] = [
   ['landing_url', 'URL de landing'],
   ['formulario', 'Formulario'],
   ['isc_session_id', 'Sesión CRM'],
+  ['ya_participante', '¿Ya inscrito/a con Intersunset?'],
+  ['condiciones_feria', 'Acepta condiciones de la feria (50 €)'],
 ];
 
 export async function POST(request: Request) {
@@ -144,6 +156,21 @@ export async function POST(request: Request) {
 
   const prog: Program = body.programa === 'wt' ? PROGRAMS.wt : PROGRAMS.camps;
 
+  // Inscripción a la feria online (solo dentro de plazo y con las condiciones aceptadas)
+  const isFair = body.tipo === 'feria';
+  if (isFair && !isFairOpen()) {
+    return NextResponse.json({ error: 'La inscripción a la feria está cerrada' }, { status: 410 });
+  }
+  if (isFair && !body.condiciones_feria) {
+    return NextResponse.json({ error: 'Faltan las condiciones de la feria' }, { status: 400 });
+  }
+  const title = isFair ? `Inscripción ${fair.name} (${fair.dateShort})` : `Nuevo lead SEM — ${prog.label}`;
+  const subject = isFair ? `FERIA ${fair.dateShort} · Inscripción: ${esc(nombre)}` : `Lead SEM ${prog.label}: ${esc(nombre)}`;
+  const formName = isFair
+    ? `${fair.crmFormName} (landing camps)`
+    : `Landing SEM ${prog.label} (${body.formulario ?? 'formulario'})`;
+  const waProgram = isFair ? `la ${fair.name.toLowerCase()} del ${fair.dateShort}` : prog.waProgram;
+
   const fecha = new Date().toLocaleString('es-ES', { timeZone: 'Europe/Madrid' });
   const rows = FIELDS.filter(([k]) => body[k])
     .map(
@@ -155,7 +182,7 @@ export async function POST(request: Request) {
     .join('');
 
   const waLink = leadWhatsAppLink(String(nombre), String(telefono), {
-    program: prog.waProgram,
+    program: waProgram,
     calendly: prog.waCalendly,
   });
   const waBlock = waLink
@@ -170,7 +197,7 @@ export async function POST(request: Request) {
   const html = `
     <div style="font-family:Arial,sans-serif;max-width:600px;margin:0 auto;">
       <div style="background:#1E1D48;padding:24px;border-radius:8px 8px 0 0;">
-        <h2 style="color:#fff;margin:0;">Nuevo lead SEM — ${prog.label}</h2>
+        <h2 style="color:#fff;margin:0;">${title}</h2>
       </div>
       <div style="background:#f8f8f8;padding:24px;border-radius:0 0 8px 8px;">
         ${waBlock}
@@ -188,14 +215,14 @@ export async function POST(request: Request) {
       new Set([LEAD_EMAIL, process.env.CONTACT_EMAIL].filter(Boolean) as string[])
     );
     const [crmOk, ...emailResults] = await Promise.all([
-      sendToCrm(body, prog),
+      sendToCrm(body, prog, { formName, waProgram }),
       ...recipients.map(async to => {
         try {
           const { error } = await resend.emails.send({
             from: process.env.RESEND_FROM || 'Intersunset Campus <onboarding@resend.dev>',
             to: [to],
             replyTo: String(email),
-            subject: `Lead SEM ${prog.label}: ${esc(nombre)}`,
+            subject,
             html,
           });
           if (error) console.error('Resend error para', to, error);
