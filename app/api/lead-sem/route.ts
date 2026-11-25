@@ -167,7 +167,7 @@ export async function POST(request: Request) {
   const title = isFair ? `Inscripción ${fair.name} (${fair.dateShort})` : `Nuevo lead SEM — ${prog.label}`;
   const subject = isFair ? `FERIA ${fair.dateShort} · Inscripción: ${esc(nombre)}` : `Lead SEM ${prog.label}: ${esc(nombre)}`;
   const formName = isFair
-    ? `${fair.crmFormName} (landing camps)`
+    ? `${fair.crmFormName} (${body.formulario === 'feria_home' ? 'web principal' : 'landing camps'})`
     : `Landing SEM ${prog.label} (${body.formulario ?? 'formulario'})`;
   const waProgram = isFair ? `la ${fair.name.toLowerCase()} del ${fair.dateShort}` : prog.waProgram;
 

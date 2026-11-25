@@ -17,8 +17,9 @@ const INGLES = [
 ];
 
 // Formulario de inscripción a la feria online (evento temporal).
-export default function FairForm() {
-  const id = 'feria';
+// `source` distingue desde dónde se inscribe (landing de Camps o portada de la web).
+export default function FairForm({ source = 'feria' }: { source?: string }) {
+  const id = source;
   const router = useRouter();
   const [status, setStatus] = useState<'idle' | 'loading' | 'error' | 'closed'>('idle');
   const [checkError, setCheckError] = useState(false);

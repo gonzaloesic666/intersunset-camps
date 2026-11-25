@@ -11,6 +11,7 @@ import FAQ from '@/components/FAQ';
 import ContactForm from '@/components/ContactForm';
 import CTAFinal from '@/components/CTAFinal';
 import Footer from '@/components/Footer';
+import FairHome from '@/components/FairHome';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <FairHome />
         <WhatIsProgram />
         <Benefits />
         <HowItWorks />

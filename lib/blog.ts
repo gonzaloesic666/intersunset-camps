@@ -14,7 +14,7 @@ export const blogPosts: BlogPost[] = [
     title: '¿Cuánto cuesta ser monitor en un campamento americano? Guía completa 2027',
     description:
       'Descubre el precio real del programa Monitor Camp USA: qué incluye, qué no incluye y cómo financiar tu aventura en Estados Unidos.',
-    date: '2026-10-05',
+    date: '2026-11-20',
     readTime: '6 min',
     category: 'Precios y financiación',
     content: `
@@ -90,7 +90,7 @@ El programa no solo se autofinancia: muchos participantes **vuelven con dinero a
 
 El calendario habitual es:
 
-1. **Septiembre-Noviembre**: Reserva tu plaza con 150€
+1. **Septiembre-Diciembre**: Reserva tu plaza con 150€
 2. **Noviembre-Enero**: Entrevistas con campamentos
 3. **Enero-Febrero**: Contrato firmado → segundo pago de 425€
 4. **Febrero-Abril**: Gestión del visado J1
@@ -108,7 +108,7 @@ En Intersunset Campus somos transparentes con todos los costes desde el primer m
     title: 'Tipos de monitor en American Camps: Activity Counselor vs General Counselor',
     description:
       'Conoce las diferencias entre los roles de Activity Counselor y General Counselor en los campamentos americanos y descubre cuál encaja mejor con tu perfil.',
-    date: '2026-10-02',
+    date: '2026-11-17',
     readTime: '5 min',
     category: 'El programa',
     content: `
@@ -193,7 +193,7 @@ Cada campamento tiene sus propias necesidades y perfiles, y nosotros te ayudamos
     slug: 'visa-j1-campamentos-eeuu-proceso-completo',
     title: 'Visa J1 para campamentos en EEUU: proceso completo paso a paso 2027',
     description: 'Guía completa del visado J1 para monitores de campamento: documentación, tiempos, costes y todo lo que necesitas saber antes de solicitarlo.',
-    date: '2026-09-29',
+    date: '2026-11-13',
     readTime: '8 min',
     category: 'Visado J1',
     content: `
@@ -276,7 +276,7 @@ Si la entrevista sale bien, en unos días recibes el pasaporte con el visado J1 
 | Entrega del pasaporte | 3-7 días |
 | **Total proceso completo** | **3-5 meses** |
 
-Por eso recomendamos empezar el proceso en **septiembre-octubre** para el verano siguiente.
+Por eso recomendamos empezar el proceso **cuanto antes, en otoño** (de septiembre a diciembre) para el verano siguiente.
 
 ### ¿Cuáles son las causas de denegación del visado?
 
@@ -300,7 +300,7 @@ El proceso puede parecer complejo pero con el acompañamiento correcto es comple
     slug: 'cuanto-se-gana-monitor-campamento-americano',
     title: '¿Cuánto dinero se gana como monitor en un campamento americano? 2027',
     description: 'Descubre el salario real de un monitor de campamento en EEUU, cuánto puedes ahorrar y por qué muchos participantes vuelven con más de 1.500€ en el bolsillo.',
-    date: '2026-09-26',
+    date: '2026-11-10',
     readTime: '5 min',
     category: 'Precios y financiación',
     content: `
@@ -365,7 +365,7 @@ Al terminar el campamento tienes **30 días adicionales** para viajar por Estado
     slug: 'monitor-camp-usa-nivel-ingles-b1',
     title: 'Monitor Camp USA con nivel B1 de inglés: ¿es posible? Todo lo que necesitas saber',
     description: 'El miedo al nivel de inglés es la principal duda antes de apuntarse. Descubre qué nivel necesitas realmente para ser monitor en un campamento americano.',
-    date: '2026-09-24',
+    date: '2026-11-06',
     readTime: '5 min',
     category: 'Requisitos',
     content: `
@@ -424,7 +424,7 @@ En la cita gratuita inicial hacemos una valoración informal de tu nivel de ingl
     slug: 'guia-campamentos-lou-henry-hoover-greenwoods-camp-tuckaho',
     title: 'Lou Henry Hoover Camp, Greenwoods Camp y Camp Tuckaho: guía completa para monitores españoles',
     description: 'Conoce en detalle los tres campamentos americanos con los que trabaja Intersunset Campus: ubicación, actividades, ambiente y qué esperar si te asignan a cada uno.',
-    date: '2026-09-21',
+    date: '2026-11-03',
     readTime: '7 min',
     category: 'Los campamentos',
     content: `
@@ -489,7 +489,7 @@ La asignación de campamento depende de tu perfil, tus habilidades y la disponib
     slug: 'que-llevar-campamento-americano-monitor',
     title: 'Qué llevar a un campamento americano: lista completa para monitores españoles 2027',
     description: 'Lista definitiva de todo lo que necesitas llevar como monitor a un campamento americano: ropa, calzado, documentación, medicamentos y consejos prácticos.',
-    date: '2026-09-18',
+    date: '2026-10-30',
     readTime: '6 min',
     category: 'Preparación',
     content: `
@@ -553,7 +553,7 @@ Los campamentos son entornos activos al aire libre. Enfócate en ropa cómoda, r
     slug: 'dudas-frecuentes-monitor-camp-usa',
     title: 'Las 10 dudas más frecuentes antes de ser monitor en EEUU (respondidas con honestidad)',
     description: 'Respondemos con total honestidad las preguntas más difíciles que nos hacen antes de apuntarse al programa Monitor Camp USA.',
-    date: '2026-09-16',
+    date: '2026-10-27',
     readTime: '7 min',
     category: 'FAQ',
     content: `
@@ -610,7 +610,7 @@ El primer pago de 150€ no es reembolsable si decides abandonar por causas prop
     slug: 'mejores-estados-eeuu-monitor-campamento',
     title: 'Los mejores estados de EEUU para trabajar como monitor de campamento en 2027',
     description: 'Descubre qué estados americanos tienen los mejores campamentos de verano: Nueva Inglaterra, California, el Medio Oeste y más. Guía completa para monitores españoles.',
-    date: '2026-09-14',
+    date: '2026-10-23',
     readTime: '6 min',
     category: 'Destinos',
     content: `
@@ -661,7 +661,7 @@ Al terminar el campamento tienes 30 días para explorar EEUU. La ubicación del 
     slug: 'como-preparar-entrevista-campamento-americano',
     title: 'Cómo preparar la entrevista con un campamento americano: guía definitiva',
     description: 'Todo lo que necesitas saber para preparar y superar la entrevista con un campamento americano: preguntas frecuentes, consejos prácticos y errores a evitar.',
-    date: '2026-09-11',
+    date: '2026-11-24',
     readTime: '7 min',
     category: 'Preparación',
     content: `
