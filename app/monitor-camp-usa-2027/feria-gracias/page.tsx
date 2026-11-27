@@ -37,7 +37,7 @@ export default function FeriaGracias() {
               <strong>Recibirás el acceso a la feria</strong> antes del {fair.dateShort}.
             </li>
             <li>
-              <strong>{fair.refundText}</strong> Antes de pagar recibirás las condiciones por escrito.
+              <strong>{fair.refundText}</strong>
             </li>
           </ol>
 

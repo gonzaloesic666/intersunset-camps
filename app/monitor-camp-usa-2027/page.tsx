@@ -222,7 +222,7 @@ export default function SemLanding() {
                 <li>{fair.refundText}</li>
                 <li>Inscripción abierta hasta el {fair.deadlineLong}</li>
               </ul>
-              <p className="sem-small">Antes de pagar recibirás todas las condiciones por escrito.</p>
+              <p className="sem-small">Al inscribirte confirmas tu plaza pagando los {fair.fee} online en ese mismo momento.</p>
             </div>
             <div className="sem-formcard">
               <FairForm />

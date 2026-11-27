@@ -15,7 +15,7 @@ export const fair = {
   fee: '50 €',
   refundText: 'Si no consigues campamento, te devolvemos los 50 €.',
   // Enlace de pago de 50 € (p. ej. un Payment Link de Stripe). Vacío = se lo envías tú después.
-  paymentUrl: process.env.NEXT_PUBLIC_FAIR_PAYMENT_URL || '',
+  paymentUrl: process.env.NEXT_PUBLIC_FAIR_PAYMENT_URL || 'https://buy.stripe.com/28E7sL0hYgCO4CGfSQ7Zu03',
   crmFormName: 'Feria online de campamentos 9-dic-2026',
 };
 
