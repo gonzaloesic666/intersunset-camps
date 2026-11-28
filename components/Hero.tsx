@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { CheckCircle, Calendar } from 'lucide-react';
-import { fair } from '@/lib/fair';
 
 const CALENDLY = 'https://calendly.com/intersunsetcampus/intersunset-campus?back=1&m';
 
@@ -67,17 +66,6 @@ export default function Hero() {
 
           {/* ── LEFT COLUMN ─────────────────────────────────── */}
           <div>
-            {/* Aviso feria online (temporal: desaparece solo al cerrar la inscripción) */}
-            <div className="fair-only fade-up" style={{ marginBottom: '14px' }}>
-              <a href="#feria" className="fair-hero-pill" data-ga-location="hero_feria">
-                <span className="fair-hero-pill__tag">NUEVO</span>
-                <span>
-                  <strong>{fair.name}</strong> · {fair.dateShort}
-                </span>
-                <span aria-hidden="true">→</span>
-              </a>
-            </div>
-
             {/* Badge */}
             <div
               className="fade-up"

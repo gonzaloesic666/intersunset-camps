@@ -4,7 +4,6 @@ import MobileCtaBar from '@/components/MobileCtaBar';
 import { FaqSchema } from '@/components/FaqSchema';
 import { LocalBusinessSchema } from '@/components/LocalBusinessSchema';
 import { ProgramSchema } from '@/components/ProgramSchema';
-import { FAIR_DEADLINE_MS } from '@/lib/fair';
 
 const websiteSchema = {
   '@context': 'https://schema.org',
@@ -30,12 +29,6 @@ const websiteSchema = {
 export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      {/* Feria online: se oculta sola al pasar el plazo de inscripción (antes de pintar, sin parpadeo) */}
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `if(Date.now()>=${FAIR_DEADLINE_MS})document.documentElement.classList.add('fair-closed')`,
-        }}
-      />
       {children}
       <WhatsAppButton />
       <MobileCtaBar />

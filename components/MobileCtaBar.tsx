@@ -17,12 +17,7 @@ export default function MobileCtaBar() {
       const pastThreshold = scrollY > 300;
       const nearBottom = scrollY + windowHeight > docHeight - 200;
 
-      // No tapar el formulario de la feria mientras se rellena
-      const fairEl = document.getElementById('feria');
-      const r = fairEl?.getBoundingClientRect();
-      const overFair = !!r && r.height > 0 && r.top < windowHeight && r.bottom > 0;
-
-      setIsVisible(pastThreshold && !nearBottom && !overFair);
+      setIsVisible(pastThreshold && !nearBottom);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
